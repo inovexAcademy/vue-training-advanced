@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "composite": true,
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "target": "esnext",
+    "moduleResolution": "bundler",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "resolveJsonModule": true,
+    "types": [
+      "@intlify/unplugin-vue-i18n/messages"
+    ],
+    "noUncheckedIndexedAccess": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": [
+    "_examples/**/*",
+    "_exercises/**/*",
+    "_solutions/**/*"
+  ]
+}

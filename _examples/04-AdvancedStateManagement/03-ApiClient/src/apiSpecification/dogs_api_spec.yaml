@@ -1,0 +1,79 @@
+openapi: 3.1.0
+
+info:
+  title: Example API
+  description: Example API for showcasing how to generate an API client with openapi-typescript-codegen
+  version: '1.0.0'
+  contact:
+    name: SIT Web Frontend Enterprise
+
+tags:
+  - name: dogs
+    description: routes to handle dogs because dogs are awesome
+
+servers:
+  - url: 'http://localhost:3000'
+
+paths:
+  /dogs:
+    parameters: []
+    get:
+      summary: Gets a list of all dogs
+      description: Gets all available dogs because dogs are awesome (especially Corgies)
+      operationId: get-all-dogs
+      tags:
+        - dogs
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Dog'
+        '401':
+          description: Unauthorized
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    Dog:
+      title: Dog
+      description: Information about a dog
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+          minLength: 1
+        awesomeness:
+          type: number
+          minimum: 0
+          maximum: 10
+        image:
+          type: string
+      required:
+        - id
+        - name
+        - awesomeness
+      x-examples:
+        corgi example:
+          id: '1'
+          name: Corgi
+          awesomeness: 10
+          image: 'https://www.google.com/search?q=corgi&tbm=isch'
+        australian shepherd example:
+          id: '2'
+          name: Australian Shepherd
+          awesomeness: 9
+          image: 'https://www.google.com/search?q=australian+shepherd&tbm=isch'
+
+security:
+  - bearerAuth: []
