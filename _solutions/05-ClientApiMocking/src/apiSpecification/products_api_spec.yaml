@@ -1,0 +1,192 @@
+openapi: 3.1.0
+
+info:
+  title: Products API
+  description: Example API for showcasing how to generate an API client with openapi-typescript-codegen
+  version: '1.0.0'
+  contact:
+    name: SIT Web Frontend Enterprise
+
+tags:
+  - name: products
+    description: routes to handle products
+
+servers:
+  - url: 'https://dummyjson.com'
+
+paths:
+  /products:
+    parameters:
+      - name: limit
+        in: query
+        description: Number of items to return
+        required: false
+        schema:
+          type: integer
+          default: 30
+    get:
+      summary: Gets a list of all products
+      description: Gets all available products
+      operationId: get-all-products
+      tags:
+        - products
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  products:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+                  total:
+                    type: integer
+                  skip:
+                    type: integer
+                  limit:
+                    type: integer
+        '400':
+          description: Invalid status value
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+components:
+  schemas:
+    Dimensions:
+      type: object
+      properties:
+        width:
+          type: number
+        height:
+          type: number
+        depth:
+          type: number
+      required:
+        - width
+        - height
+        - depth
+
+    Review:
+      type: object
+      properties:
+        rating:
+          type: number
+        comment:
+          type: string
+        date:
+          type: string
+          format: date-time
+        reviewerName:
+          type: string
+        reviewerEmail:
+          type: string
+      required:
+        - rating
+        - comment
+        - date
+        - reviewerName
+        - reviewerEmail
+
+    Meta:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        barcode:
+          type: string
+        qrCode:
+          type: string
+      required:
+        - createdAt
+        - updatedAt
+        - barcode
+        - qrCode
+
+    Product:
+      title: Product
+      description: Information about a product
+      type: object
+      properties:
+        id:
+          type: number
+        title:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        price:
+          type: number
+        discountPercentage:
+          type: number
+        rating:
+          type: number
+        stock:
+          type: number
+        tags:
+          type: array
+          items:
+            type: string
+        brand:
+          type: string
+        sku:
+          type: string
+        weight:
+          type: number
+        dimensions:
+          $ref: '#/components/schemas/Dimensions'
+        warrantyInformation:
+          type: string
+        shippingInformation:
+          type: string
+        availabilityStatus:
+          type: string
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/Review'
+        returnPolicy:
+          type: string
+        minimumOrderQuantity:
+          type: number
+        meta:
+          $ref: '#/components/schemas/Meta'
+        thumbnail:
+          type: string
+        images:
+          type: array
+          items:
+            type: string
+      required:
+        - id
+        - title
+        - description
+        - category
+        - price
+        - discountPercentage
+        - rating
+        - stock
+        - brand
+        - thumbnail
+        - reviews

@@ -1,0 +1,24 @@
+{
+  "name": "exercise-e2e-testing",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "engineStrict": true,
+  "engines": {
+    "node": "23"
+  },
+  "scripts": {
+    "start": "pnpm run dev",
+    "dev": "vite",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "pnpm exec playwright test --ui --ui-host=0.0.0.0",
+    "test:e2e:ui-local": "playwright test --ui",
+    "build": "run-p type-check build-only",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit -p tsconfig.json --composite false"
+  },
+  "devDependencies": {
+    "@playwright/test": "~1.52.0",
+    "@types/node": "^22.18.8"
+  }
+}
