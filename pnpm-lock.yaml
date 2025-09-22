@@ -6880,7 +6880,6 @@ packages:
     resolution:
       {
         integrity: sha512-4cKBO9wR75r0BeIWWWId9XK9Lj6La5X846Zw9dFfzMRw38IlTk2iCcUt6hsyiDRcPidc55ZParFYDXi0nXOeLQ==,
-        tarball: https://schwarzit.jfrog.io/schwarzit/api/npm/npm/vite/-/vite-7.1.5.tgz,
       }
     engines: { node: ^20.19.0 || >=22.12.0 }
     hasBin: true
