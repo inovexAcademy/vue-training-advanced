@@ -2,11 +2,11 @@ import ProductList from '@/components/ProductList.vue';
 import { createTestingPinia } from '@pinia/testing';
 import { ComponentMountingOptions, mount } from '@vue/test-utils';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import * as products from '@/shared/products';
 import { mockProducts } from '@tests/mocks/products';
 import ProductCard from '@/components/ProductCard.vue';
 import { useShoppingCartStore } from '@/stores/shoppingCart';
 import { Product } from '@/types/common';
+import { useProductStore } from '@/stores/products';
 
 describe('ProductList', () => {
   let mountingOptions: ComponentMountingOptions<typeof ProductList>;
@@ -36,21 +36,21 @@ describe('ProductList', () => {
 
     it('should render product list', () => {
       const { wrapper } = setupResult;
-      const productList = wrapper.find('ul');
+      const productList = wrapper.find('[data-testid="product-list"]');
 
       expect(productList.exists()).toEqual(true);
     });
 
     it('should render all product items', () => {
       const { wrapper } = setupResult;
-      const items = wrapper.findAll('li');
+      const items = wrapper.findAll('[data-testid="product-item"]');
 
       expect(items.length).toEqual(mockProducts.length);
     });
 
     it('should render product items with product card and correct props', () => {
       const { wrapper } = setupResult;
-      const items = wrapper.findAll('li');
+      const items = wrapper.findAll('[data-testid="product-item"]');
 
       expect(items.length).toEqual(availableProducts.length);
 
@@ -70,13 +70,17 @@ describe('ProductList', () => {
       });
     });
 
-    it('when ProductCard emits "add-to-card", should call shoppingCartStore.addToCart', () => {
+    it('when ProductCard emits "add-to-card", should call shoppingCartStore.addToCart', async () => {
       const product = availableProducts[0];
-      const { wrapper, shoppingCartStore } = setupResult;
+      const { wrapper, shoppingCartStore, productStore } = setupResult;
+      productStore.getProductById = vi
+        .fn()
+        .mockResolvedValue({ product, error: null });
       const addToCartSpy = vi.spyOn(shoppingCartStore, 'addToCart');
       const firstProductCard = wrapper.findAllComponents(ProductCard).at(0);
 
       firstProductCard?.vm.$emit('add-to-cart', product.id);
+      await wrapper.vm.$nextTick();
 
       expect(addToCartSpy).toHaveBeenCalledExactlyOnceWith(product);
     });
@@ -91,7 +95,7 @@ describe('ProductList', () => {
 
     it('should render placeholder instead of product list', () => {
       const { wrapper } = setupResult;
-      const productList = wrapper.find('ul');
+      const productList = wrapper.find('[data-testid="product-list"]');
 
       expect(productList.exists()).toEqual(false);
 
@@ -107,16 +111,21 @@ describe('ProductList', () => {
   }: {
     availableProducts?: Product[];
   }) => {
-    vi.spyOn(products, 'getProducts').mockReturnValue(availableProducts);
-
-    const shoppingCartStore = useShoppingCartStore();
     const wrapper = mount(ProductList, {
       ...mountingOptions,
     });
 
+    const shoppingCartStore = useShoppingCartStore();
+    const productStore = useProductStore();
+
+    productStore.loadProducts = vi.fn();
+
+    productStore.products = availableProducts;
+
     return {
       wrapper,
       shoppingCartStore,
+      productStore,
     };
   };
 

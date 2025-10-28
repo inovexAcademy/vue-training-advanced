@@ -36,21 +36,21 @@ describe('ProductList', () => {
 
     it('should render product list', () => {
       const { wrapper } = setupResult;
-      const productList = wrapper.find('[data-test-id="product-list"]');
+      const productList = wrapper.find('[data-testid="product-list"]');
 
       expect(productList.exists()).toEqual(true);
     });
 
     it('should render all product items', () => {
       const { wrapper } = setupResult;
-      const items = wrapper.findAll('[data-test-id="product-list-item"]');
+      const items = wrapper.findAll('[data-testid="product-item"]');
 
       expect(items.length).toEqual(mockProducts.length);
     });
 
     it('should render product items with product card and correct props', () => {
       const { wrapper } = setupResult;
-      const items = wrapper.findAll('[data-test-id="product-list-item"]');
+      const items = wrapper.findAll('[data-testid="product-item"]');
 
       expect(items.length).toEqual(availableProducts.length);
 
@@ -91,7 +91,7 @@ describe('ProductList', () => {
 
     it('should render placeholder instead of product list', () => {
       const { wrapper } = setupResult;
-      const productList = wrapper.find('[data-test-id="product-list"]');
+      const productList = wrapper.find('[data-testid="product-list"]');
 
       expect(productList.exists()).toEqual(false);
 
@@ -107,7 +107,7 @@ describe('ProductList', () => {
   }: {
     availableProducts?: Product[];
   }) => {
-    vi.spyOn(products, 'getProducts').mockReturnValue(availableProducts);
+    vi.spyOn(products, 'fetchProducts').mockResolvedValue(availableProducts);
 
     const shoppingCartStore = useShoppingCartStore();
     const wrapper = mount(ProductList, {

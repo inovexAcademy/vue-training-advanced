@@ -59,10 +59,11 @@ const router = useRouter();
 <template>
   <div class="root">
     <OnyxHeadline is="h1" class="title">Available Products </OnyxHeadline>
-    <ul v-if="products.length > 0" data-test-id="product-list">
+    <ul v-if="products.length > 0" data-testid="product-list">
       <li
         v-for="product in products"
         :key="product.id"
+        data-testid="product-item"
         @click="router.push(`/product/${product.id}`)"
       >
         <ProductCard

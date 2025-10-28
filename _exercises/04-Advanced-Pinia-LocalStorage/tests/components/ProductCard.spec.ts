@@ -41,7 +41,7 @@ describe('ProductCard', () => {
       description: 'Product description',
       price: 9.99,
     });
-    const description = wrapper.find('.description');
+    const description = wrapper.find('[data-testid="product-description"]');
 
     expect(description.text()).toEqual('Product description');
   });
@@ -53,7 +53,7 @@ describe('ProductCard', () => {
       description: 'Product description',
       price: 9.99,
     });
-    const price = wrapper.find('.price');
+    const price = wrapper.find('[data-testid="product-price"]');
 
     expect(price.text()).toEqual('Price: 9.99 $');
   });

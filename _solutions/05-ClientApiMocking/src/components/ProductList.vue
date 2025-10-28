@@ -60,8 +60,13 @@ const handleAddToCart = async (productId: number) => {
 <template>
   <div class="root">
     <OnyxHeadline is="h1" class="title">Available Products </OnyxHeadline>
-    <ul v-if="productStore.products?.length > 0">
-      <li v-for="product in productStore.products" :key="product.id">
+    <ul v-if="productStore.products?.length > 0" data-testid="product-list">
+      <li
+        v-for="product in productStore.products"
+        :key="product.id"
+        data-testid="product-item"
+      >
+        {{ product.id }} - {{ product.title }}
         <ProductCard
           :id="product.id"
           :title="product.title"
