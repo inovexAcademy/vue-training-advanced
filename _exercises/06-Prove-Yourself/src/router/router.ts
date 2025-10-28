@@ -6,7 +6,7 @@ import ProductView from '@/views/ProductView.vue';
 import LoginView from '@/views/LoginView.vue';
 import { useAuthStore } from '@/stores/auth';
 
-const routes = [
+export const routes = [
   { path: '/', component: HomeView, name: 'Home' },
   { path: '/checkout', component: CheckoutView, name: 'Checkout' },
   { path: '/product/:productId', component: ProductView, name: 'Product' },
