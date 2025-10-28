@@ -75,7 +75,7 @@ describe('ProductCard', () => {
     });
     const button = wrapper.findComponent(OnyxButton);
 
-    button.vm.$emit('click');
+    button.trigger('click');
 
     expect(wrapper.emitted('add-to-cart').length).toEqual(1);
     expect(wrapper.emitted('add-to-cart')[0]).toEqual([456]);
