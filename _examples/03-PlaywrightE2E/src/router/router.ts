@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue';
 import LamaView from '../views/LamaView.vue';
 import { lamaData } from '../lama-data';
 
-const routes = [
+export const routes = [
   {
     path: '/',
     component: HomeView,

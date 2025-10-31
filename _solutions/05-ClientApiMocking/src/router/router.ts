@@ -5,7 +5,7 @@ import CheckoutView from '@/views/CheckoutView.vue';
 import ProductView from '@/views/ProductView.vue';
 import NotFoundView from '@/views/NotFoundView.vue';
 
-const routes = [
+export const routes = [
   { path: '/', component: HomeView },
   { path: '/checkout', component: CheckoutView },
   { path: '/product/:productId', component: ProductView },

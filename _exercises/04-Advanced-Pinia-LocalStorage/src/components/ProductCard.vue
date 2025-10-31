@@ -23,8 +23,8 @@ const router = useRouter();
     @click="() => router.push(`/product/${props.id}`)"
   >
     <OnyxHeadline is="h3">{{ props.title }}</OnyxHeadline>
-    <p>{{ props.description }}</p>
-    <p>Price: {{ props.price }} $</p>
+    <p data-testid="product-description">{{ props.description }}</p>
+    <p data-testid="product-price">Price: {{ props.price }} $</p>
     <OnyxButton
       label="Add to cart"
       :icon="plus"

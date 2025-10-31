@@ -41,7 +41,7 @@ describe('ProductCard', () => {
       description: 'Product description',
       price: 9.99,
     });
-    const description = wrapper.find('.description');
+    const description = wrapper.find('[data-testid="product-description"]');
 
     expect(description.text()).toEqual('Product description');
   });
@@ -53,7 +53,7 @@ describe('ProductCard', () => {
       description: 'Product description',
       price: 9.99,
     });
-    const price = wrapper.find('.price');
+    const price = wrapper.find('[data-testid="product-price"]');
 
     expect(price.text()).toEqual('Price: 9.99 $');
   });
@@ -75,7 +75,7 @@ describe('ProductCard', () => {
     });
     const button = wrapper.findComponent(OnyxButton);
 
-    button.vm.$emit('click');
+    button.trigger('click');
 
     expect(wrapper.emitted('add-to-cart').length).toEqual(1);
     expect(wrapper.emitted('add-to-cart')[0]).toEqual([456]);
