@@ -40,7 +40,7 @@ const router = useRouter();
 
 <template>
   <div class="root">
-    <OnyxHeadline is="h1" class="title">Available Products </OnyxHeadline>
+    <OnyxHeadline is="h1" class="title">Available Products</OnyxHeadline>
     <ul v-if="products.length > 0" data-test-id="product-list">
       <li
         v-for="product in products"
@@ -65,7 +65,7 @@ const router = useRouter();
       :options="pageSizeOptions"
       placeholder="Page size"
     />
-    <!-- ^-- Selecting a new page size should update our products -->
+    <!-- ^-- Selecting a new page size should update the products -->
   </div>
 </template>
 

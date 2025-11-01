@@ -3,7 +3,6 @@ import ProductCard from '@/components/ProductCard.vue';
 import { fetchProducts } from '@/shared/products';
 import { useShoppingCartStore } from '@/stores/shoppingCart';
 import { Product } from '@/types/common';
-import { useStorage } from '@vueuse/core';
 import { OnyxHeadline, OnyxSelect } from 'sit-onyx';
 import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
@@ -25,21 +24,17 @@ const pageSizeOptions = [
   },
 ];
 const defaultPageSize = pageSizeOptions[0].value;
-const pageSize = useStorage('pageSize', defaultPageSize);
+const pageSize = ref(defaultPageSize);
 
 watch(
   pageSize,
   async newPageSize => {
-    window.localStorage.setItem('pageSize', newPageSize.toString());
-
     products.value = await fetchProducts(newPageSize);
   },
   { immediate: true },
 );
 
 // watchEffect(async () => {
-//   window.localStorage.setItem('pageSize', pageSize.value.toString());
-//
 //   products.value = await fetchProducts(pageSize.value);
 // });
 //
