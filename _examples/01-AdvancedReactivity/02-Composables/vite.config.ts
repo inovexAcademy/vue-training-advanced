@@ -12,13 +12,4 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  server: {
-    port: 8100,
-  },
-  test: {
-    environment: 'jsdom',
-    coverage: {
-      exclude: ['src/api'],
-    },
-  },
 });
