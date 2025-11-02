@@ -262,7 +262,14 @@ importers:
 
   _exercises/02-Advanced-Routing: {}
 
-  _exercises/03-E2E-Testing: {}
+  _exercises/03-E2E-Testing:
+    devDependencies:
+      '@playwright/test':
+        specifier: ~1.52.0
+        version: 1.52.0
+      '@types/node':
+        specifier: ^22.18.8
+        version: 22.18.8
 
   _exercises/04-Advanced-Pinia-LocalStorage: {}
 

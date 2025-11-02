@@ -10,8 +10,7 @@ As a starting point, we created two test files in the `/tests` directory: `add-t
 
 **Try coming up with sensible user flows, then automate and test them with Playwright! You got this!**
 
-<details>
-<summary>Otherwise, you can take inspiration from these examples (Click me!)</summary>
+Otherwise, you can take inspiration from these examples:
 
 - Given an empty shopping cart
   - When the Add-to-Cart Button of Product XYZ is clicked once
@@ -27,16 +26,14 @@ As a starting point, we created two test files in the `/tests` directory: `add-t
     - [ ] Then removes the product from the shopping cart
     - [ ] Then shows the correct total (0.00)
     - [ ] ...
-- Given the Product List page
+- Given the product list page
   - When the card of Product 1 is clicked
     - [ ] Then displays the Product Details page of Product 1
     - [ ] ...
-- Given the Product Details page of Product 1
+- Given the product details page of Product 1
   - When "Go Back to Products" link is clicked
     - [ ] Then displays the Product List page
     - [ ] ...
-
-</details>
 
 ## 💡 Help
 

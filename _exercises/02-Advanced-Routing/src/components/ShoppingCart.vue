@@ -15,12 +15,12 @@ function handleRemove(productId: number) {
     <OnyxHeadline is="h2">Shopping Cart</OnyxHeadline>
     <ul
       v-if="shoppingCartStore.cartItems.length > 0"
-      data-test-id="product-list"
+      data-testid="product-list"
     >
       <li
         v-for="cartItem in shoppingCartStore.cartItems"
         :key="cartItem.product.id"
-        data-test-id="product-list-item"
+        data-testid="product-list-item"
       >
         >
         <OnyxCard>
