@@ -7,8 +7,6 @@ import { run } from 'vite-plugin-run';
 import { coverageConfigDefaults } from 'vitest/config';
 import vueDevTools from 'vite-plugin-vue-devtools';
 
-const t = setInterval(() => {});
-
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   plugins: [

@@ -262,6 +262,8 @@ importers:
 
   _exercises/02-Advanced-Routing: {}
 
+  _exercises/03-E2E-Testing: {}
+
   _exercises/04-Advanced-Pinia-LocalStorage: {}
 
   _exercises/05-ClientApiMocking: {}
