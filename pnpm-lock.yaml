@@ -173,13 +173,15 @@ importers:
 
   _examples/01-AdvancedReactivity/01-TargetMap: {}
 
-  _examples/01-AdvancedReactivity/01-Watchers: {}
+  _examples/01-AdvancedReactivity/02-Composables: {}
 
-  _examples/01-AdvancedReactivity/03-ErrorHandlingFetch: {}
+  _examples/01-AdvancedReactivity/02-Watchers: {}
 
-  _examples/01-AdvancedReactivity/04-ErrorHandling: {}
+  _examples/01-AdvancedReactivity/03-ComputedPropsAdvanced: {}
 
-  _examples/01-AdvancedReactivity/tbd-ComputedPropsAdvanced: {}
+  _examples/01-AdvancedReactivity/04-ErrorHandlingFetch: {}
+
+  _examples/01-AdvancedReactivity/05-ErrorHandling: {}
 
   _examples/03-PlaywrightE2E:
     dependencies:

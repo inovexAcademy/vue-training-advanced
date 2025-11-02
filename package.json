@@ -20,7 +20,7 @@
     "start:welcome": "cd _examples/Welcome && pnpm run dev",
     "start:1": "cd _exercises/01-Advanced-Reactivity && pnpm run dev",
     "start:2": "cd _exercises/02-Advanced-Routing && pnpm run dev",
-    "start:3": "cd _exercises/03-TBD && pnpm run dev",
+    "start:3": "cd _exercises/03-E2E-Testing && pnpm run dev",
     "start:4": "cd _exercises/04-Advanced-Pinia-LocalStorage && pnpm run dev",
     "start:5": "cd _exercises/05-ClientApiMocking && pnpm run dev",
     "start:6": "cd _exercises/06-Prove-Yourself && pnpm run dev",
