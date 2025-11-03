@@ -22,7 +22,6 @@ function handleRemove(productId: number) {
         :key="cartItem.product.id"
         data-testid="product-list-item"
       >
-        >
         <OnyxCard>
           <OnyxHeadline is="h3">{{ cartItem.product.title }}</OnyxHeadline>
 
