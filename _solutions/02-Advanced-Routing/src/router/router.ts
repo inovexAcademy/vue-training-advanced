@@ -42,15 +42,18 @@ const router = createRouter({
 
 router.beforeEach(to => {
   const requiresAdmin = to.meta.requiresAdmin;
-  const { isAdmin, isAuthenticated } = useAuthStore();
+  if (!requiresAdmin) return;
 
-  if (requiresAdmin && !isAdmin) {
-    if (!isAuthenticated) {
-      return { name: 'Login', query: { redirectUrl: to.fullPath } };
-    } else {
-      return { name: 'Home' };
-    }
+  const { isAdmin, isAuthenticated } = useAuthStore();
+  if (isAdmin) return;
+
+  if (!isAuthenticated) {
+    // redirect to login with query param of redirectUrl
+    return { name: 'Login', query: { redirectUrl: to.fullPath } }; //?redirectUrl=http://...
   }
+
+  // redirect away from admin to home, as you are not an admin
+  return { name: 'Home' };
 });
 
 export default router;
