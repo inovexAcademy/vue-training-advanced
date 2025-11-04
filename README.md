@@ -52,7 +52,7 @@ pnpm install
 Go into the desired exercise folder and run the dev server:
 
 ```bash
-cd _exercises/01-setup
+cd _exercises/01-Advanced-Reactivity
 pnpm dev
 ```
 
