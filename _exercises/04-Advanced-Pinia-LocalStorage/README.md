@@ -6,7 +6,7 @@ The goal of this exercise is to learn how to persist state in local storage toge
 
 - [ ] Add a new view for user settings:
   - [ ] Add a new route for `/user-settings`: This route should load the `UserSettingsView.vue` component.
-    > 💡 We already added a partially implemented `UserSettingsView.vue` in `/views`
+    > 💡 We already added a partially implemented `UserSettingsView.vue` in `/src/views` directory
 - [ ] Set up the link to the user settings page within the HomeView (beside the admin link)
 - [ ] Find a place for where to add the user settings state
   - [ ] Add a state variable for the theme
