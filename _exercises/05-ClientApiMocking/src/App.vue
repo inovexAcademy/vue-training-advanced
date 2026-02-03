@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useColorMode } from '@vueuse/core';
-import { OnyxAppLayout, OnyxToastMessage, useThemeTransition } from 'sit-onyx';
+import { OnyxAppLayout, useThemeTransition } from 'sit-onyx';
+import ExerciseBanner from '../../../shared/ExerciseBanner.vue';
 
 const { store: colorScheme } = useColorMode({ disableTransition: false });
 useThemeTransition(colorScheme);
@@ -8,12 +9,8 @@ useThemeTransition(colorScheme);
 
 <template>
   <OnyxAppLayout class="onyx-grid-max-md onyx-grid-center">
-    <OnyxToastMessage
-      headline="Exercise 05: Api Client and Mocking"
-      :duration="0"
-      color="warning"
-      style="width: 100%"
-    />
+    <ExerciseBanner number="5" title="Api Client and Mocking" />
+
     <RouterView />
   </OnyxAppLayout>
 </template>

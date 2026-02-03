@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import { useColorMode } from '@vueuse/core';
 import { OnyxAppLayout, useThemeTransition } from 'sit-onyx';
-import { useUserSettingsStore } from './stores/userSettings';
 import { watchEffect } from 'vue';
+import ExerciseBanner from '../../../shared/ExerciseBanner.vue';
+import { useUserSettingsStore } from './stores/userSettings';
 
 const userSettingsStore = useUserSettingsStore();
 const { store: colorScheme } = useColorMode({ disableTransition: false });
@@ -16,6 +17,8 @@ watchEffect(() => {
 
 <template>
   <OnyxAppLayout class="onyx-grid-max-md onyx-grid-center">
+    <ExerciseBanner number="4" title="Advanced Pinia with Local Storage" />
+
     <RouterView />
   </OnyxAppLayout>
 </template>
