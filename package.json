@@ -86,11 +86,5 @@
     "@hey-api/openapi-ts": "^0.81.1",
     "msw": "^2.10.5",
     "z-vue-scan": "^0.0.35"
-  },
-  "lint-staged": {
-    "*": [
-      "prettier --write -u",
-      "eslint --fix"
-    ]
   }
 }
