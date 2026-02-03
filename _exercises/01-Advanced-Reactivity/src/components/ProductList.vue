@@ -36,22 +36,23 @@ const handleAddToCart = (productId: number) => {
 };
 
 const router = useRouter();
+
+const handleProductClick = (productId: number) => {
+  router.push(`/product/${productId}`);
+};
 </script>
 
 <template>
   <div class="root">
     <OnyxHeadline is="h1" class="title">Available Products</OnyxHeadline>
     <ul v-if="products.length > 0" data-testid="product-list">
-      <li
-        v-for="product in products"
-        :key="product.id"
-        @click="router.push(`/product/${product.id}`)"
-      >
+      <li v-for="product in products" :key="product.id">
         <ProductCard
           :id="product.id"
           :title="product.title"
           :description="product.description"
           :price="product.price"
+          @product-click="handleProductClick(product.id)"
           @add-to-cart="handleAddToCart"
         ></ProductCard>
       </li>
@@ -92,12 +93,6 @@ const router = useRouter();
 
     li {
       list-style: none;
-      cursor: pointer;
-      transition: transform 0.1s ease-in-out;
-
-      &:hover {
-        transform: scale(1.01);
-      }
     }
   }
 
