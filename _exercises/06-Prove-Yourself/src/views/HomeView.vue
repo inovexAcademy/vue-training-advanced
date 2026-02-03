@@ -22,7 +22,7 @@ const handleLogout = () => {
 
 <template>
   <OnyxPageLayout no-padding>
-    <template #sidebar>
+    <template #sidebarRight>
       <OnyxSidebar label="Example sidebar" alignment="right">
         <ShoppingCart></ShoppingCart>
         <div class="sidebar-cta">

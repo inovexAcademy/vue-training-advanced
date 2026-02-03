@@ -54,6 +54,10 @@ const handleAddToCart = (productId: number) => {
 };
 
 const router = useRouter();
+
+const handleProductClick = (productId: number) => {
+  router.push(`/product/${productId}`);
+};
 </script>
 
 <template>
@@ -64,13 +68,13 @@ const router = useRouter();
         v-for="product in products"
         :key="product.id"
         data-testid="product-item"
-        @click="router.push(`/product/${product.id}`)"
       >
         <ProductCard
           :id="product.id"
           :title="product.title"
           :description="product.description"
           :price="product.price"
+          @product-click="handleProductClick(product.id)"
           @add-to-cart="handleAddToCart"
         ></ProductCard>
       </li>
@@ -110,12 +114,6 @@ const router = useRouter();
 
     li {
       list-style: none;
-      cursor: pointer;
-      transition: transform 0.1s ease-in-out;
-
-      &:hover {
-        transform: scale(1.01);
-      }
     }
   }
 

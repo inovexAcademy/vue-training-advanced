@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import { useColorMode } from '@vueuse/core';
-import { OnyxAppLayout, OnyxToastMessage, useThemeTransition } from 'sit-onyx';
-import { useUserSettingsStore } from './stores/userSettings';
+import { OnyxAppLayout, useThemeTransition } from 'sit-onyx';
 import { watchEffect } from 'vue';
+import ExerciseBanner from '../../../shared/ExerciseBanner.vue';
+import { useUserSettingsStore } from './stores/userSettings';
 
 const userSettingsStore = useUserSettingsStore();
 const { store: colorScheme } = useColorMode({ disableTransition: false });
@@ -16,12 +17,8 @@ watchEffect(() => {
 
 <template>
   <OnyxAppLayout class="onyx-grid-max-md onyx-grid-center">
-    <OnyxToastMessage
-      headline="Exercise 06: Prove Yourself"
-      :duration="0"
-      color="warning"
-      style="width: 100%"
-    />
+    <ExerciseBanner number="6" title="Prove Yourself" />
+
     <RouterView />
   </OnyxAppLayout>
 </template>
