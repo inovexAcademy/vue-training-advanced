@@ -15,7 +15,6 @@
   "scripts": {
     "test-all": "pnpm -r exec vitest run --passWithNoTests",
     "build-all": "pnpm -r exec vite build",
-    "prepare": "simple-git-hooks -ws -if-present",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "pnpm exec playwright install",
     "start:welcome": "cd _examples/Welcome && pnpm run dev",
@@ -87,9 +86,6 @@
     "@hey-api/openapi-ts": "^0.81.1",
     "msw": "^2.10.5",
     "z-vue-scan": "^0.0.35"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
     "*": [

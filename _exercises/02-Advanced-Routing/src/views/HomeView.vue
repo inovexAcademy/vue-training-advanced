@@ -2,7 +2,7 @@
 import ProductList from '@/components/ProductList.vue';
 import ShoppingCart from '@/components/ShoppingCart.vue';
 import { useAuthStore } from '@/stores/auth';
-import { OnyxButton, OnyxLink, OnyxPageLayout, OnyxSidebar } from 'sit-onyx';
+import { OnyxLink, OnyxPageLayout, OnyxSidebar } from 'sit-onyx';
 
 const { isAuthenticated, isAdmin, logout } = useAuthStore();
 
@@ -15,7 +15,7 @@ const handleLogout = () => {
 
 <template>
   <OnyxPageLayout no-padding>
-    <template #sidebar>
+    <template #sidebarRight>
       <OnyxSidebar label="Example sidebar" alignment="right">
         <ShoppingCart></ShoppingCart>
         <div class="sidebar-cta">
