@@ -33,12 +33,12 @@
   "dependencies": {
     "@fontsource-variable/source-code-pro": "^5.2.5",
     "@fontsource-variable/source-sans-3": "^5.2.7",
-    "@sit-onyx/icons": "1.0.0-beta.23",
+    "@sit-onyx/icons": "1.4.0",
     "@vueuse/core": "^13.7.0",
     "oidc-client-ts": "^3.2.1",
     "pinia": "^3.0.3",
     "pinia-plugin-persistedstate": "^4.5.0",
-    "sit-onyx": "1.0.0-beta.285",
+    "sit-onyx": "1.6.0",
     "vue": "^3.5.20",
     "vue-component-type-helpers": "^3.0.6",
     "vue-i18n": "^11.1.3"
