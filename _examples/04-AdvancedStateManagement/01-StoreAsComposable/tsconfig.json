@@ -4,7 +4,9 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
     "resolveJsonModule": true,
     "target": "esnext",
@@ -17,5 +19,8 @@
     "./src/**/*.vue",
     "./package.json",
     "./tests/unit/**/*"
+  ],
+  "exclude": [
+    "./src/api"
   ]
 }

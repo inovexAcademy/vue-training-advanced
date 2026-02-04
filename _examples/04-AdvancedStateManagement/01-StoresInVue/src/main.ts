@@ -1,23 +1,11 @@
 import './assets/main.css';
 
-import { createApp } from 'vue';
 import { createPinia } from 'pinia';
-import App from './App.vue';
-import { client } from '@/api/client.gen';
+import { createApp } from 'vue';
 import VueScan, { type VueScanOptions } from 'z-vue-scan';
-
-// Configure API client (MSW will intercept these requests)
-client.setConfig({ baseUrl: '/api' });
-
-const accessToken = 'unknown'; // msw to the rescue
-client.interceptors.request.use(request => {
-  request.headers.set('Authorization', `Bearer ${accessToken}`);
-  return request;
-});
+import App from './App.vue';
 
 const app = createApp(App);
-
-app.use(createPinia());
 
 const isScan =
   document.location.search.includes('scan=true') ||
@@ -28,23 +16,6 @@ app.use<VueScanOptions>(VueScan, {
   displayDuration: 700,
   fadeOutDuration: 400,
 });
+app.use(createPinia())
 
-prepareApp().then(() => {
-  app.mount('#app');
-});
-
-async function prepareApp() {
-  if (
-    process.env.NODE_ENV === 'development' ||
-    process.env.NODE_ENV === 'test'
-  ) {
-    const { worker } = await import('./mocks/browser');
-    return worker.start({
-      serviceWorker: {
-        url: '/mockServiceWorker.js',
-      },
-    });
-  }
-
-  return Promise.resolve();
-}
+app.mount('#app');

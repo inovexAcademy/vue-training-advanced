@@ -1,7 +1,15 @@
 import { Dog, getAllDogs } from '@/api';
 import { computed, readonly, ref } from 'vue';
 
-export const useVueDogStore = () => {
+let store: ReturnType<typeof _useVueDogStore> | null = null;
+// Singleton Store
+export const useDogStore = () => {
+  if (store) return store;
+  store = _useVueDogStore();
+  return store;
+}
+
+const _useVueDogStore = () => {
   const dogs = ref<Dog[]>(undefined);
   const minAwesomeness = ref<number>(0);
   const error = ref<{ message: string } | undefined>();
