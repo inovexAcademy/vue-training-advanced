@@ -2,6 +2,7 @@
 import ComponentA from './components/ComponentA.vue';
 import ComponentB from './components/ComponentB.vue';
 
+import { countStoreClassSingleton } from './store/countStoreAsClass';
 import { useCountStore } from './store/countStoreAsComposable';
 import countStore from './store/countStoreAsModule';
 import { useCountStorePinia } from './store/countStoreWithPinia';
@@ -15,6 +16,7 @@ const piniaCountStore = useCountStorePinia();
   <pre>
   Module Store: {{ countStore.count }}
   Composable Store: {{ composableCountStore.count }}
+  Class Store: {{ countStoreClassSingleton.count }}
   Pinia Store: {{ piniaCountStore.count }}
   </pre>
   <br />

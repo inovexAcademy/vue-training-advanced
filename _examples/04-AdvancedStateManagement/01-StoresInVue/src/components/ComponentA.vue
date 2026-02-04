@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useMouse } from '@/composables/useMouse';
+import { countStoreClassSingleton } from '@/store/countStoreAsClass';
 import { useCountStore } from '@/store/countStoreAsComposable';
 import { useCountStorePinia } from '@/store/countStoreWithPinia';
 import { useTemplateRef } from 'vue';
@@ -22,12 +23,24 @@ const piniaCountStore = useCountStorePinia();
       <button @click="countStore.increment">Increase Count</button>
       {{ countStore.count }}
     </div>
+    <br />
 
     <div class="card">
       <h3>Composable Store</h3>
       <button @click="composableCountStore.increment">Increase Count</button>
       {{ composableCountStore.count }}
     </div>
+
+    <br />
+
+    <div class="card">
+      <h3>Class Store</h3>
+      <button @click="countStoreClassSingleton.increment">
+        Increase Count
+      </button>
+      {{ countStoreClassSingleton.count }}
+    </div>
+    <br />
 
     <div class="card">
       <h3>Pinia Store</h3>

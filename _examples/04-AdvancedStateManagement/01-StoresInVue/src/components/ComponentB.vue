@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useMouse } from '@/composables/useMouse';
+import { countStoreClassSingleton } from '@/store/countStoreAsClass';
 import { useCountStore } from '@/store/countStoreAsComposable';
 import { useCountStorePinia } from '@/store/countStoreWithPinia';
 import { useTemplateRef } from 'vue';
@@ -10,6 +11,26 @@ const mouse = useMouse(compB);
 
 const composableCountStore = useCountStore();
 const piniaCountStore = useCountStorePinia();
+
+// countStore.count.value = 19;
+// composableCountStore.count.value = 19;
+// countStoreClassSingleton.count.value = 15;
+// piniaCountStore.count = 19;
+
+// countStore.doubleCount.value = 999;
+// composableCountStore.doubleCount.value = 888;
+// countStoreClassSingleton.doubleCount.value = 777;
+// piniaCountStore.doubleCount = 666;
+
+// with class, we can add readonly to properties, but we can still overwrite methods...
+// countStoreClassSingleton.increment = () => {
+//   countStoreClassSingleton.count += 5;
+// };
+
+// pinia can also be overwritten...
+// piniaCountStore.increment = () => {
+//   piniaCountStore.count += 90;
+// };
 </script>
 
 <template>
@@ -30,6 +51,16 @@ const piniaCountStore = useCountStorePinia();
       <button @click="composableCountStore.decrement">Decrease Count</button>
       <br />
       doubleCount: {{ composableCountStore.doubleCount }}
+    </div>
+
+    <br />
+    <div class="card">
+      <h3>Class Store</h3>
+      <button @click="countStoreClassSingleton.decrement">
+        Decrease Count
+      </button>
+      <br />
+      doubleCount: {{ countStoreClassSingleton.doubleCount }}
     </div>
 
     <br />
