@@ -1,20 +1,19 @@
 import { computed, Ref, ref } from 'vue';
 
 class countStoreClass {
-  readonly count: Ref<number>;
+  count: Ref<number>;
 
   constructor(count = 0) {
-    this.count = ref(0);
-    this.count.value = count;
+    this.count = ref(count);
   }
 
   readonly doubleCount = computed(() => this.count.value * 2);
 
-  increment() {
+  readonly increment = () => {
     this.count.value++;
   }
 
-  decrement() {
+  readonly decrement = () => {
     this.count.value--;
   }
 }
