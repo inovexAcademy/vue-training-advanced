@@ -4,10 +4,14 @@ import { computed, ref } from 'vue';
 
 export const useShoppingCartStore = defineStore('shoppingCart', () => {
   const cartItems = ref<ShoppingCartItem[]>([]);
-  const totalPrice = computed(() => {
+
+  const totalPrice = computed<number>(() => {
     return cartItems.value
       .reduce((sum, item) => sum + item.product.price * item.quantity, 0)
-      .toFixed(2);
+  });
+
+  const totalPricePresentation = computed<string>(() => {
+    return totalPrice.value.toFixed(2);
   });
 
   function addToCart(newCartItem: Product) {
@@ -47,7 +51,7 @@ export const useShoppingCartStore = defineStore('shoppingCart', () => {
 
   return {
     cartItems: computed(() => cartItems.value),
-    totalPrice,
+    totalPrice: totalPricePresentation,
     addToCart,
     removeFromCart,
   };

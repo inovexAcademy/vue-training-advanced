@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { ref, readonly } from 'vue';
+import { ref } from 'vue';
 
 export const useFilterCriteriaStore = defineStore(
   'filterCriteria',

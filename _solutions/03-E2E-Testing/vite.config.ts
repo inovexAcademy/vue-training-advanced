@@ -4,10 +4,8 @@ import vue from '@vitejs/plugin-vue';
 import { URL, fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import { run } from 'vite-plugin-run';
-import { coverageConfigDefaults } from 'vitest/config';
 import vueDevTools from 'vite-plugin-vue-devtools';
-
-const t = setInterval(() => {});
+import { coverageConfigDefaults } from 'vitest/config';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({

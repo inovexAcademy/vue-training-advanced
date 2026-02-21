@@ -5,7 +5,8 @@ import { computed, ref } from 'vue';
 
 export const useShoppingCartStore = defineStore('shoppingCart', () => {
   const cartItems = ref<ShoppingCartItem[]>([]);
-  const totalPrice = computed(() => {
+
+const totalPrice = computed(() => {
     return cartItems.value
       .reduce((sum, item) => sum + item.product.price * item.quantity, 0)
       .toFixed(2);

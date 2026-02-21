@@ -15,7 +15,8 @@ export const useShoppingCart = () => {
 
 const _useShoppingCart = () => {
   const cartItems = ref<ShoppingCartItem[]>([]);
-  const totalPrice = computed(() => {
+
+const totalPrice = computed(() => {
     return cartItems.value
       .reduce((sum, item) => sum + item.product.price * item.quantity, 0)
       .toFixed(2);

@@ -28,8 +28,10 @@ const handleChange = e => {
 <template>
   <p>Total: {{ price }}</p>
 
-  <!-- <h2>Demo Seconds</h2> -->
-  <!-- <Seconds></Seconds> -->
+  <div v-if="false">
+    <h2>Demo Seconds</h2>
+    <Seconds></Seconds>
+  </div>
 
   <h2>Demo Interval</h2>
   <Interval v-if="shown"></Interval>

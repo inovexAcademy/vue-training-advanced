@@ -8,7 +8,8 @@ console.debug('🔥 secretStore.$state', secretStore.$state);
 <template>
   <div class="app">
     Secret:
-    <pre>{{ secretStore.secret || 'undefined' }}</pre>
+    <!-- Secret is not exposed anymore, resulting in error -->
+    <!-- <pre>{{ secretStore.secret || 'undefined' }}</pre> -->
     <br />
     Censored Secret:
     <pre>{{ secretStore.censoredSecret }}</pre>

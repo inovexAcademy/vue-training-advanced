@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { OnyxButton, OnyxCard, OnyxPageLayout, OnyxLink } from 'sit-onyx';
-import { useAuthStore } from '@/stores/auth';
-import { useRoute, useRouter } from 'vue-router';
+import { OnyxButton, OnyxCard, OnyxLink, OnyxPageLayout } from 'sit-onyx';
+// import { useAuthStore } from '@/stores/auth';
+// import { useRoute, useRouter } from 'vue-router';
 
-const { login } = useAuthStore();
+// const { login } = useAuthStore();
 
 const handleLogin = async (admin?: boolean) => {
   // Use the login function here to login the user. Hint: To log in as admin, pass true as the argument.
