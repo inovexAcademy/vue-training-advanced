@@ -7,10 +7,12 @@ import { OnyxHeadline, OnyxSelect } from 'sit-onyx';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
+const shoppingCartStore = useShoppingCartStore();
+const router = useRouter();
+
 const products = ref<Product[]>(getProducts());
 //                              ^-- Should use fetchProducts instead!
-const shoppingCartStore = useShoppingCartStore();
-const pageSizeOptions = [
+const pageSizeOptions: { value: number; label: string }[] = [
   {
     value: 5,
     label: '5',
@@ -25,7 +27,7 @@ const pageSizeOptions = [
   },
 ];
 const defaultPageSize = pageSizeOptions[0].value;
-const pageSize = ref(defaultPageSize);
+const pageSize = ref<number>(defaultPageSize);
 
 const handleAddToCart = (productId: number) => {
   const productToAdd = products.value.find(product => product.id === productId);
@@ -34,8 +36,6 @@ const handleAddToCart = (productId: number) => {
 
   shoppingCartStore.addToCart(productToAdd);
 };
-
-const router = useRouter();
 
 const handleProductClick = (productId: number) => {
   router.push(`/product/${productId}`);

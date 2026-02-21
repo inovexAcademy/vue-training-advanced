@@ -18,6 +18,7 @@ Exercise {{ props.number }} {{ props.title ? ':' : '' }} {{ props.title }}</pre
   color: white;
   padding: 0.4rem 0.75rem;
   border: 4px dashed #e65ad9;
+  background-color: rgb(36, 36, 36);
   text-align: left;
   position: fixed;
   width: auto;
