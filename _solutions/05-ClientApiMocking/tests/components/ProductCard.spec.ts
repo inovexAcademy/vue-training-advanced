@@ -58,7 +58,7 @@ describe('ProductCard', () => {
     expect(price.text()).toEqual('Price: 9.99 $');
   });
 
-  it.only('should render "Add to cart"-button with label', () => {
+  it('should render "Add to cart"-button with label', () => {
     const { wrapper } = setup();
 
     const button = wrapper.findComponent(OnyxButton);
