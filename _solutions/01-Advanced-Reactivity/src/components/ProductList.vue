@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import ProductCard from '@/components/ProductCard.vue';
-import { fetchProducts } from '@/shared/products';
+import { useProductsStore } from '@/stores/products';
 import { useShoppingCartStore } from '@/stores/shoppingCart';
-import { Product } from '@/types/common';
-import { OnyxHeadline, OnyxSelect } from 'sit-onyx';
+import { OnyxHeadline, OnyxSelect, SelectOption } from 'sit-onyx';
 import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
-const products = ref<Product[]>([]);
+const router = useRouter();
 const shoppingCartStore = useShoppingCartStore();
-const pageSizeOptions = [
+const productsStore = useProductsStore();
+
+const pageSizeOptions: SelectOption<number>[] = [
   {
     value: 5,
     label: '5',
@@ -22,14 +23,14 @@ const pageSizeOptions = [
     value: 25,
     label: '25',
   },
-];
-const defaultPageSize = pageSizeOptions[0].value;
+] as const;
+const defaultPageSize = pageSizeOptions[0]!.value; // exception as we know for sure that the index=0 exists
 const pageSize = ref(defaultPageSize);
 
 watch(
   pageSize,
   async newPageSize => {
-    products.value = await fetchProducts(newPageSize);
+    productsStore.loadProducts(newPageSize);
   },
   { immediate: true },
 );
@@ -40,17 +41,28 @@ watch(
 //
 // ^-- Also a valid solution
 
+// onMounted(async () => {
+//   products.value = await fetchProducts(pageSize.value);
+// });
+//
+// watch(
+//   pageSize,
+//   async newPageSize => {
+//     products.value = await fetchProducts(newPageSize);
+//   },
+// );
+//
+// ^-- Also a valid solution
+
 const handleAddToCart = (productId: number) => {
-  const productToAdd = products.value.find(product => product.id === productId);
+  const productToAdd = productsStore.getProductById(productId);
 
   if (!productToAdd) return;
 
   shoppingCartStore.addToCart(productToAdd);
 };
 
-const router = useRouter();
-
-const handleProductClick = (productId: number) => {
+const openProductDetails = (productId: number) => {
   router.push(`/product/${productId}`);
 };
 </script>
@@ -58,9 +70,12 @@ const handleProductClick = (productId: number) => {
 <template>
   <div class="root">
     <OnyxHeadline is="h1" class="title">Available Products </OnyxHeadline>
-    <ul v-if="products.length > 0" data-testid="product-list">
+    <ul
+      v-if="productsStore.validProducts?.length > 0"
+      data-testid="product-list"
+    >
       <li
-        v-for="product in products"
+        v-for="product in productsStore.products"
         :key="product.id"
         data-testid="product-item"
       >
@@ -69,7 +84,7 @@ const handleProductClick = (productId: number) => {
           :title="product.title"
           :description="product.description"
           :price="product.price"
-          @product-click="handleProductClick(product.id)"
+          @product-click="openProductDetails(product.id)"
           @add-to-cart="handleAddToCart"
         ></ProductCard>
       </li>

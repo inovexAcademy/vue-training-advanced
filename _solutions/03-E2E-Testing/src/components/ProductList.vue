@@ -37,7 +37,7 @@ const handleAddToCart = (productId: number) => {
 
 const router = useRouter();
 
-const handleProductClick = (productId: number) => {
+const openProductDetails = (productId: number) => {
   router.push(`/product/${productId}`);
 };
 </script>
@@ -52,7 +52,7 @@ const handleProductClick = (productId: number) => {
           :title="product.title"
           :description="product.description"
           :price="product.price"
-          @product-click="handleProductClick(product.id)"
+          @product-click="openProductDetails(product.id)"
           @add-to-cart="handleAddToCart"
         ></ProductCard>
       </li>

@@ -9,7 +9,10 @@ The goal of this exercise is to learn working with watchers and composables.
   - [ ] The displayed products should be based on the current `pageSize`, e.g. if `pageSize === 5`, the app should automatically call `fetchProducts(5)` and display the fetched products.
     > 💡 In abstract terms, what does `fetchProducts` represent? Which Vue feature is intended for things like it? 😉
 
-> - [ ] 💪 Bonus challenge: Find a way to move all products related logic into a single place and use that throughout the app.
+💪 Bonus challenges:
+
+> - [ ] Find a way to move all products related logic into a single place and use that throughout the app.
+> - [ ] Ensure that the product fetch request is only done once per selected page size.
 
 ## 💡 Help
 
