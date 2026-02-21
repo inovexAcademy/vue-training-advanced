@@ -31,5 +31,17 @@
   "chat.notifyWindowOnConfirmation": false,
   "vitest.maximumConfigs": 50,
   "telemetry.feedback.enabled": false,
-  "githubPullRequests.codingAgent.enabled": true
+  "githubPullRequests.codingAgent.enabled": true,
+  "workbench.colorCustomizations": {
+    "[Default Light+]": {
+      "gitDecoration.modifiedResourceForeground": "#000000",
+      "gitDecoration.deletedResourceForeground": "#000000",
+      "gitDecoration.untrackedResourceForeground": "#000000",
+      "gitDecoration.addedResourceForeground": "#000000",
+      "gitDecoration.conflictingResourceForeground": "#000000",
+      "gitDecoration.renamedResourceForeground": "#000000",
+      "gitDecoration.stageModifiedResourceForeground": "#000000",
+      "gitDecoration.stageDeletedResourceForeground": "#000000"
+    }
+  }
 }

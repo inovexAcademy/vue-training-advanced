@@ -1,8 +1,8 @@
 import ProductCard from '@/components/ProductCard.vue';
 import { createTestingPinia } from '@pinia/testing';
 import { ComponentMountingOptions, mount } from '@vue/test-utils';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { OnyxButton, OnyxHeadline } from 'sit-onyx';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { ComponentProps } from 'vue-component-type-helpers';
 
 describe('ProductCard', () => {
@@ -63,7 +63,7 @@ describe('ProductCard', () => {
 
     const button = wrapper.findComponent(OnyxButton);
 
-    expect(button.attributes()['label']).toEqual('Add to cart');
+    expect(button.props('label')).toBe('Add to cart');
   });
 
   it('when "Add to cart"-button is clicked, should emit add-to-cart event with product id', () => {
@@ -77,8 +77,8 @@ describe('ProductCard', () => {
 
     button.trigger('click');
 
-    expect(wrapper.emitted('add-to-cart').length).toEqual(1);
-    expect(wrapper.emitted('add-to-cart')[0]).toEqual([456]);
+    expect(wrapper.emitted('add-to-cart')!.length).toEqual(1);
+    expect(wrapper.emitted('add-to-cart')![0]).toEqual([456]);
   });
 
   const setup = (

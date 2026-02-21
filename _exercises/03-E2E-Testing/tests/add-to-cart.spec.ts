@@ -1,5 +1,5 @@
 import { getProducts } from '@/shared/products';
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 const products = getProducts();
 
@@ -14,7 +14,7 @@ test.describe('Add to cart', () => {
     test.beforeEach(async ({ page }) => {
       const addToCartButton = page
         .getByRole('listitem')
-        .filter({ hasText: product.title })
+        .filter({ hasText: product!.title })
         .getByRole('button')
         .filter({ hasText: /Add to cart/ });
 
@@ -22,7 +22,7 @@ test.describe('Add to cart', () => {
 
       const shoppingCartItem = page
         .getByTestId('shopping-cart-list-item')
-        .getByRole('heading', { name: product.title });
+        .getByRole('heading', { name: product!.title });
 
       await expect(shoppingCartItem).toBeVisible();
       await expect(page.getByTestId('shopping-cart-list-item')).toHaveCount(1);

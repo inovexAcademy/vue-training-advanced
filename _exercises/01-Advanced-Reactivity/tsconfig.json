@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "module": "esnext",
     "moduleResolution": "bundler",
+    "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
     "paths": {

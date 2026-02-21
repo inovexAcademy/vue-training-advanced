@@ -13,7 +13,7 @@
     "_solutions/*"
   ],
   "scripts": {
-    "test-all": "pnpm -r exec vitest run --passWithNoTests",
+    "test-all": "pnpm -r run --if-present test:unit --run --passWithNoTests",
     "build-all": "pnpm -r exec vite build",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "pnpm exec playwright install",
@@ -32,7 +32,8 @@
   "dependencies": {
     "@fontsource-variable/source-code-pro": "^5.2.5",
     "@fontsource-variable/source-sans-3": "^5.2.7",
-    "@sit-onyx/icons": "1.4.0",
+    "@sit-onyx/icons": "1.6.0",
+    "@sit-onyx/headless": "0.7.0",
     "@vueuse/core": "^13.7.0",
     "oidc-client-ts": "^3.2.1",
     "pinia": "^3.0.3",

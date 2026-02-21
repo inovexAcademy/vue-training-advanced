@@ -22,7 +22,7 @@ const pageSizeOptions = [
     label: '25',
   },
 ];
-const defaultPageSize = pageSizeOptions[0].value;
+const defaultPageSize = pageSizeOptions[0]!.value;
 const pageSize = useStorage('pageSize', defaultPageSize);
 
 watch(

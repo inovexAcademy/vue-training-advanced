@@ -23,7 +23,7 @@ const pageSizeOptions = [
     label: '25',
   },
 ];
-const defaultPageSize = pageSizeOptions[0].value;
+const defaultPageSize = pageSizeOptions[0]!.value;
 const pageSize = useStorage('pageSize', defaultPageSize);
 
 watch(
@@ -56,7 +56,7 @@ const handleAddToCart = (productId: number) => {
 <template>
   <div class="root">
     <OnyxHeadline is="h1" class="title">Available Products </OnyxHeadline>
-    <ul v-if="products.length > 0" data-testid="product-list">
+    <ul v-if="(products?.length ?? 0) > 0" data-testid="product-list">
       <li
         v-for="product in products"
         :key="product.id"

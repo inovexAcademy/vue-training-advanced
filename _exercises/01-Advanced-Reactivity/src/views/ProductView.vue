@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { getProducts } from '@/shared/products';
-import { OnyxPageLayout, OnyxHeadline, OnyxCard, OnyxLink } from 'sit-onyx';
+import { OnyxCard, OnyxHeadline, OnyxLink, OnyxPageLayout } from 'sit-onyx';
 import { useRoute, useRouter } from 'vue-router';
 
 const getProductForId = (id: number) => {
