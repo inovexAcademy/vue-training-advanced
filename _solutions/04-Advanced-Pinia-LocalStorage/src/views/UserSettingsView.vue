@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useAuthStore } from '@/stores/auth';
 import { useUserSettingsStore } from '@/stores/userSettings';
 import {
   OnyxCard,
@@ -9,6 +10,7 @@ import {
 } from 'sit-onyx';
 
 const userSettingsStore = useUserSettingsStore();
+const authStore = useAuthStore();
 
 const handleUsernameChange = (event: InputEvent) => {
   const target = event.target as HTMLInputElement;
@@ -28,6 +30,7 @@ const handleUsernameChange = (event: InputEvent) => {
       <div>
         <p><strong>Username:</strong> {{ userSettingsStore.username }}</p>
         <input
+          v-if="authStore.isAdmin"
           :value="userSettingsStore.username"
           type="text"
           placeholder="Change username..."

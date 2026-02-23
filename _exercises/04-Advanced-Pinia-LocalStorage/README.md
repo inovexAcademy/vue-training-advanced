@@ -19,6 +19,7 @@ The goal of this exercise is to learn how to persist state in local storage toge
 
 - [ ] Find a way to bind the selected theme with the actual color scheme so that the colors adjust dynamically.
 - [ ] When the user is logged in as an admin, allow the username in the user settings view to be changed. Persist the username in local storage as well.
+  - [ ] Also add the username to the HomeView shown within the Link to the user settings page.
 
 ## 🖼️ Example Result
 
