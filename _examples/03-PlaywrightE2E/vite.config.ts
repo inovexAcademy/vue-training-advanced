@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import { defineConfig } from 'vite';
 
 // https://vite.dev/config/
 export default defineConfig(() => ({
@@ -12,7 +12,5 @@ export default defineConfig(() => ({
       'vitest-sonar-reporter': 'test-results/sonar-report.xml',
     },
     include: ['./tests/**/*.spec.ts'],
-    /** The setup files will be called before any test so we can apply global mocks there. */
-    setupFiles: ['./tests/vitest-setup.ts'],
   },
 }));

@@ -10,8 +10,13 @@ As a starting point, we created two test files in the `/tests` directory: `add-t
 
 **Try coming up with sensible user flows, then automate and test them with Playwright! You got this!**
 
+<br/>
+<br/>
+<br/>
+<br/>
+
 <details>
-<summary>Otherwise, you can take inspiration from these examples (Click me!)</summary>
+<summary>👀 To get hints, you can take inspiration from these examples (Click me!)</summary>
 
 - Given an empty shopping cart
   - When the Add-to-Cart Button of Product XYZ is clicked once

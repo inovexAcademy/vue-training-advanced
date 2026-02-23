@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test('should allow chatting with Barack Olama', async ({ page }) => {
   await page.goto('localhost:5173/lama/1');

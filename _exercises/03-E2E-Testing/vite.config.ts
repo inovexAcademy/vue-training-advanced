@@ -61,7 +61,5 @@ export default defineConfig(({ mode }) => ({
       exclude: [...coverageConfigDefaults.exclude, '**/*.stories.*', 'src/api'],
     },
     include: ['./tests/**/*.spec.ts'],
-    /** The setup files will be called before any test so we can apply global mocks there. */
-    setupFiles: ['./tests/vitest-setup.ts'],
   },
 }));

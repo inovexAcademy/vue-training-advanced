@@ -47,15 +47,16 @@ Implement the following features:
 - [ ] Add End to end tests for
   - [ ] A user visiting the shop, putting 3 items in the cart, proceeding to checkout and clicking the confirm button
   - [ ] A user who logs in as an admin, visiting the admin page, then adds 2 more products. After that the user navigates to the product list to find his 2 newly added products.
-  - [ ] A user who visits the shop, adds to 2 time the same product, then reduces the quantity within the cart, then navigates to the cart view and checks the total sum
+  - [ ] A user who visits the shop, adds to 2 times the same product by accident, then reduces the quantity within the cart, then navigates to the cart view and checks the total sum
 
 ### 💪 Bonus challenges:
 
-- [ ] Add unit tests for everything you added
+- [ ] Add tests for everything you added, decide yourself which kind of tests you want to add (unit, e2e)
 - [ ] Find an efficient way to store the user defined settings for the price range within the local storage
 
 ## 💡 Help
 
 - Vitest documentation: [Writing Tests](https://vitest.dev/guide/#writing-tests)
 - Vue documentation: [Unit Testing](https://vuejs.org/guide/scaling-up/testing#unit-testing)
+- Playwright documentation: [Playwright Tests](https://playwright.dev/docs/writing-tests)
 - Pinia documentation: [Testing Stores](https://pinia.vuejs.org/cookbook/testing.html)
