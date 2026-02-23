@@ -1,19 +1,20 @@
 <script setup lang="ts">
-import { Theme, useUserSettingsStore } from '@/stores/userSettings';
+import { useUserSettingsStore } from '@/stores/userSettings';
 import {
   OnyxCard,
   OnyxHeadline,
   OnyxLink,
-  OnyxSelect,
   OnyxPageLayout,
+  OnyxSelect,
 } from 'sit-onyx';
 
-const userStore = useUserSettingsStore();
+const userSettingsStore = useUserSettingsStore();
 
-const themeOptions: Array<{ value: Theme; label: string }> = [
-  { value: 'light', label: 'Light Theme' },
-  { value: 'dark', label: 'Dark Theme' },
-];
+const handleUsernameChange = (event: InputEvent) => {
+  const target = event.target as HTMLInputElement;
+  const newUsername = target.value;
+  userSettingsStore.setUsername(newUsername);
+};
 </script>
 
 <template>
@@ -24,14 +25,23 @@ const themeOptions: Array<{ value: Theme; label: string }> = [
         User Settings
       </OnyxHeadline>
 
-      <div v-if="userStore.userName">
-        <p><strong>Username:</strong> {{ userStore.userName }}</p>
+      <div>
+        <p><strong>Username:</strong> {{ userSettingsStore.username }}</p>
+        <input
+          :value="userSettingsStore.username"
+          type="text"
+          placeholder="Change username..."
+          @input="event => handleUsernameChange(event)"
+        />
       </div>
       <OnyxSelect
-        v-model="userStore.theme"
+        v-model="userSettingsStore.theme"
         label="Theme"
         list-label="List label"
-        :options="themeOptions"
+        :options="[
+          { label: 'Light', value: 'light' },
+          { label: 'Dark', value: 'dark' },
+        ]"
         placeholder="Placeholder..."
       />
     </OnyxCard>

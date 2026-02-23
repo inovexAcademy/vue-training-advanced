@@ -1,22 +1,28 @@
-import { defineStore } from 'pinia';
-import { ref } from 'vue';
+import { defineStore } from "pinia";
+import { ref } from "vue";
+import { useAuthStore } from "./auth";
 
-export type Theme = 'light' | 'dark';
+export const useUserSettingsStore = defineStore('userSettings', () => {
 
-export const useUserSettingsStore = defineStore(
-  'userSettings',
-  () => {
-    const theme = ref<Theme>('dark');
-    const userName = ref<string>('Guest');
+  const authStore = useAuthStore();
 
-    return {
-      theme,
-      userName,
-    };
-  },
-  {
-    persist: {
-      pick: ['theme'],
-    },
-  },
-);
+  const username = ref<string>('Max')
+  const theme = ref<'light' | 'dark'>('light');
+
+  function setUsername(newUsername: string) {
+    if (authStore.isAdmin) {
+      username.value = newUsername;
+    }
+  }
+
+  function toggleTheme() {
+    theme.value = theme.value === 'light' ? 'dark' : 'light';
+  }
+
+  return {
+    theme,
+    username,
+    setUsername,
+    toggleTheme,
+  }
+}, {persist: {storage: sessionStorage}});

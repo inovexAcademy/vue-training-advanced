@@ -26,5 +26,9 @@ Exercise {{ props.number }} {{ props.title ? ':' : '' }} {{ props.title }}</pre
   left: 8px;
   top: 8px;
   opacity: 0.7;
+
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
 }
 </style>

@@ -10,7 +10,7 @@ useThemeTransition(colorScheme);
 
 <template>
   <OnyxAppLayout class="onyx-grid-max-md onyx-grid-center">
-    <ExerciseBanner number="4" title="Advanced Pinia with Local Storage" />
+    <ExerciseBanner number="4" title="Advanced Pinia" />
 
     <RouterView />
   </OnyxAppLayout>

@@ -2,22 +2,20 @@
 import ProductList from '@/components/ProductList.vue';
 import ShoppingCart from '@/components/ShoppingCart.vue';
 import { useAuthStore } from '@/stores/auth';
-import { iconUser } from '@sit-onyx/icons';
-import {
-  OnyxButton,
-  OnyxIcon,
-  OnyxLink,
-  OnyxPageLayout,
-  OnyxSidebar,
-} from 'sit-onyx';
+import { useUserSettingsStore } from '@/stores/userSettings';
+import { OnyxButton, OnyxLink, OnyxPageLayout, OnyxSidebar } from 'sit-onyx';
+import { useLink } from 'vue-router';
 
 const { isAuthenticated, isAdmin, logout } = useAuthStore();
+const userSettingsStore = useUserSettingsStore();
 
 const handleLogout = () => {
   logout().then(() => {
     window.location.reload();
   });
 };
+
+const userSettingsHref = useLink({ to: { name: 'UserSettings' } }).href;
 </script>
 
 <template>
@@ -40,12 +38,13 @@ const handleLogout = () => {
     <ProductList></ProductList>
 
     <nav class="top-bar-links">
-      <OnyxLink href="/admin" class="link"
+      <OnyxLink href="/admin"
         >{{ isAdmin ? '🔓' : '🔒' }} Admin Dashboard
       </OnyxLink>
-      <OnyxLink href="/user-settings" class="link">
-        <OnyxIcon :icon="iconUser" size="24px" /> User Settings
-      </OnyxLink>
+      <!-- Add link for user settings here -->
+      <OnyxLink :href="userSettingsHref"
+        >Go to User Settings ({{ userSettingsStore.username }})</OnyxLink
+      >
     </nav>
   </OnyxPageLayout>
 </template>
