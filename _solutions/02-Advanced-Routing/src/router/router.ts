@@ -1,10 +1,10 @@
-import { createWebHistory, createRouter } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
-import HomeView from '@/views/HomeView.vue';
-import CheckoutView from '@/views/CheckoutView.vue';
-import ProductView from '@/views/ProductView.vue';
-import LoginView from '@/views/LoginView.vue';
 import { useAuthStore } from '@/stores/auth';
+import CheckoutView from '@/views/CheckoutView.vue';
+import HomeView from '@/views/HomeView.vue';
+import LoginView from '@/views/LoginView.vue';
+import ProductView from '@/views/ProductView.vue';
 
 export const routes = [
   { path: '/', component: HomeView, name: 'Home' },
@@ -40,7 +40,7 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach(to => {
+router.beforeEach((to, from) => {
   const requiresAdmin = to.meta.requiresAdmin;
   if (!requiresAdmin) return;
 
@@ -53,6 +53,11 @@ router.beforeEach(to => {
   }
 
   // redirect away from admin to home, as you are not an admin
+  if (from.name === 'Home') {
+    // window.alert is also correct
+    globalThis.alert('You are logged in as User, please login as an admin to enter the Admin Dashboard')
+  }
+
   return { name: 'Home' };
 });
 
