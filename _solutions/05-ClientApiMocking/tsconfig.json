@@ -6,12 +6,8 @@
     "strict": true,
     "strictNullChecks": true,
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@tests/*": [
-        "./tests/*"
-      ]
+      "@/*": ["./src/*"],
+      "@tests/*": ["./tests/*"]
     },
     "resolveJsonModule": true,
     "target": "esnext",
@@ -26,7 +22,5 @@
     "./tests/**/*",
     "openapi-ts.config.ts"
   ],
-  "exclude": [
-    "**/*/node_modules"
-  ]
+  "exclude": ["**/*/node_modules"]
 }

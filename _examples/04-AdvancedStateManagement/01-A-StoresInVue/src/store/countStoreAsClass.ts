@@ -11,11 +11,11 @@ class countStoreClass {
 
   readonly increment = () => {
     this.count.value++;
-  }
+  };
 
   readonly decrement = () => {
     this.count.value--;
-  }
+  };
 }
 
 const instance = new countStoreClass();

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useAuthStore } from '@/stores/auth';
-import { OnyxCard, OnyxHeadline, OnyxLink, OnyxPageLayout } from 'sit-onyx';
+  import { useAuthStore } from '@/stores/auth';
+  import { OnyxCard, OnyxHeadline, OnyxLink, OnyxPageLayout } from 'sit-onyx';
 
-const { isAdmin } = useAuthStore();
+  const { isAdmin } = useAuthStore();
 </script>
 
 <template>
@@ -20,14 +20,14 @@ const { isAdmin } = useAuthStore();
 </template>
 
 <style lang="scss" scoped>
-.title {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 1rem;
-}
+  .title {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
 
-.home-link {
-  font-size: 1rem;
-  font-weight: normal;
-}
+  .home-link {
+    font-size: 1rem;
+    font-weight: normal;
+  }
 </style>

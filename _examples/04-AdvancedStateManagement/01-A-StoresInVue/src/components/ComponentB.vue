@@ -1,36 +1,36 @@
 <script lang="ts" setup>
-import { useMouse } from '@/composables/useMouse';
-import { countStoreClassSingleton } from '@/store/countStoreAsClass';
-import { useCountStore } from '@/store/countStoreAsComposable';
-import { useCountStorePinia } from '@/store/countStoreWithPinia';
-import { useTemplateRef } from 'vue';
-import countStore from '../store/countStoreAsModule';
+  import { useMouse } from '@/composables/useMouse';
+  import { countStoreClassSingleton } from '@/store/countStoreAsClass';
+  import { useCountStore } from '@/store/countStoreAsComposable';
+  import { useCountStorePinia } from '@/store/countStoreWithPinia';
+  import { useTemplateRef } from 'vue';
+  import countStore from '../store/countStoreAsModule';
 
-const compB = useTemplateRef('compB');
-const mouse = useMouse(compB);
+  const compB = useTemplateRef('compB');
+  const mouse = useMouse(compB);
 
-const composableCountStore = useCountStore();
-const piniaCountStore = useCountStorePinia();
+  const composableCountStore = useCountStore();
+  const piniaCountStore = useCountStorePinia();
 
-// countStore.count.value = 19;
-// composableCountStore.count.value = 19;
-// countStoreClassSingleton.count.value = 15;
-// piniaCountStore.count = 19;
+  // countStore.count.value = 19;
+  // composableCountStore.count.value = 19;
+  // countStoreClassSingleton.count.value = 15;
+  // piniaCountStore.count = 19;
 
-// countStore.doubleCount.value = 999;
-// composableCountStore.doubleCount.value = 888;
-// countStoreClassSingleton.doubleCount.value = 777;
-// piniaCountStore.doubleCount = 666;
+  // countStore.doubleCount.value = 999;
+  // composableCountStore.doubleCount.value = 888;
+  // countStoreClassSingleton.doubleCount.value = 777;
+  // piniaCountStore.doubleCount = 666;
 
-// with class, we can add readonly to properties, but we can still overwrite methods...
-// countStoreClassSingleton.increment = () => {
-//   countStoreClassSingleton.count += 5;
-// };
+  // with class, we can add readonly to properties, but we can still overwrite methods...
+  // countStoreClassSingleton.increment = () => {
+  //   countStoreClassSingleton.count += 5;
+  // };
 
-// pinia can also be overwritten...
-// piniaCountStore.increment = () => {
-//   piniaCountStore.count += 90;
-// };
+  // pinia can also be overwritten...
+  // piniaCountStore.increment = () => {
+  //   piniaCountStore.count += 90;
+  // };
 </script>
 
 <template>
@@ -56,9 +56,7 @@ const piniaCountStore = useCountStorePinia();
     <br />
     <div class="card">
       <h3>Class Store</h3>
-      <button @click="countStoreClassSingleton.decrement">
-        Decrease Count
-      </button>
+      <button @click="countStoreClassSingleton.decrement">Decrease Count</button>
       <br />
       doubleCount: {{ countStoreClassSingleton.doubleCount }}
     </div>
@@ -74,25 +72,25 @@ const piniaCountStore = useCountStorePinia();
 </template>
 
 <style lang="scss" scoped>
-.b {
-  position: absolute;
-  width: 350px;
-  height: auto;
-  top: 40px;
-  left: auto;
-  right: 20px;
+  .b {
+    position: absolute;
+    width: 350px;
+    height: auto;
+    top: 40px;
+    left: auto;
+    right: 20px;
 
-  background: rgb(73, 223, 163);
-  padding: 16px;
-  border-radius: 4px;
-  box-shadow: 0 0 10px gray;
-}
+    background: rgb(73, 223, 163);
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px gray;
+  }
 
-.card {
-  background-color: white;
-  padding: 8px;
-  border-radius: 4px;
-  box-shadow: 0 0 5px gray;
-  display: inline-block;
-}
+  .card {
+    background-color: white;
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px gray;
+    display: inline-block;
+  }
 </style>

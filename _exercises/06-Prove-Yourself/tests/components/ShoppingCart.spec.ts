@@ -90,9 +90,7 @@ describe('ShoppingCart', () => {
 
       removeButton.vm.$emit('click');
 
-      expect(removeFromCartSpy).toHaveBeenCalledExactlyOnceWith(
-        mockItem.product.id,
-      );
+      expect(removeFromCartSpy).toHaveBeenCalledExactlyOnceWith(mockItem.product.id);
     });
   });
 

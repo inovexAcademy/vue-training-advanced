@@ -55,7 +55,7 @@ function trigger(target, key) {
 
   // Re-run every effect that depends on target[key]
   // (Vue batches & dedupes; we keep it simple.)
-  dep.forEach(runner => runner());
+  dep.forEach((runner) => runner());
 }
 
 // Make a reactive object using a Proxy

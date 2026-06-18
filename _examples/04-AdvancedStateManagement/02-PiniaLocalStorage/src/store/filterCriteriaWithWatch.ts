@@ -21,8 +21,7 @@ export const useFilterCriteriaStore = defineStore('filterCriteria', () => {
   onBeforeMount(() => {
     const savedFilterCriteria = localStorage.getItem('filterCriteria');
     if (savedFilterCriteria) {
-      const { mileage, engineType, priceRange } =
-        JSON.parse(savedFilterCriteria);
+      const { mileage, engineType, priceRange } = JSON.parse(savedFilterCriteria);
       setMileage(mileage);
       setEngineType(engineType);
       setPriceRange(priceRange.min, priceRange.max);

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useStoreB } from '@/store/storeB';
+  import { useStoreB } from '@/store/storeB';
 
-const storeB = useStoreB();
+  const storeB = useStoreB();
 </script>
 
 <template>
@@ -13,17 +13,17 @@ const storeB = useStoreB();
 </template>
 
 <style lang="scss" scoped>
-.b {
-  position: absolute;
-  width: 350px;
-  height: auto;
-  top: 40px;
-  left: auto;
-  right: 20px;
+  .b {
+    position: absolute;
+    width: 350px;
+    height: auto;
+    top: 40px;
+    left: auto;
+    right: 20px;
 
-  background: rgb(73, 223, 163);
-  padding: 16px;
-  border-radius: 4px;
-  box-shadow: 0 0 10px gray;
-}
+    background: rgb(73, 223, 163);
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px gray;
+  }
 </style>

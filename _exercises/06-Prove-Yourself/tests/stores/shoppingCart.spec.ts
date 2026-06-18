@@ -63,7 +63,7 @@ describe('shoppingCart store', () => {
     store.addToCart(product);
     store.removeFromCart(product.id);
 
-    const item = store.cartItems.find(i => i.product.id === product.id);
+    const item = store.cartItems.find((i) => i.product.id === product.id);
     expect(item?.quantity).toEqual(1);
   });
 
@@ -74,7 +74,7 @@ describe('shoppingCart store', () => {
     store.addToCart(product);
     store.removeFromCart(product.id);
 
-    const item = store.cartItems.find(i => i.product.id === product.id);
+    const item = store.cartItems.find((i) => i.product.id === product.id);
     expect(item).toBeUndefined();
   });
 });

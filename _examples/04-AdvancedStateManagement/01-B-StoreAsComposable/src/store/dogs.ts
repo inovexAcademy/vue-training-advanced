@@ -7,7 +7,7 @@ export const useDogStore = () => {
   if (store) return store;
   store = _useVueDogStore();
   return store;
-}
+};
 
 const _useVueDogStore = () => {
   const dogs = ref<Dog[]>(undefined);
@@ -18,12 +18,12 @@ const _useVueDogStore = () => {
     if (minAwesomeness.value === 0) {
       return dogs.value;
     }
-    return dogs.value.filter(dog => dog.awesomeness >= minAwesomeness.value);
+    return dogs.value.filter((dog) => dog.awesomeness >= minAwesomeness.value);
   });
 
   const allDogAwsmLevels = computed<number[]>(() => {
     if (!dogs.value) return [];
-    const levels = new Set(dogs.value.map(dog => dog.awesomeness));
+    const levels = new Set(dogs.value.map((dog) => dog.awesomeness));
     return Array.from(levels);
   });
 

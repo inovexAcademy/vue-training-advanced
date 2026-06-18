@@ -8,7 +8,7 @@ const accessToken = 'abc'; // TODO
 
 // client.setConfig({ baseUrl: '' }) // TODO
 
-client.interceptors.request.use(request => {
+client.interceptors.request.use((request) => {
   request.headers.set('Authorization', `Bearer ${accessToken}`);
   return request;
 });

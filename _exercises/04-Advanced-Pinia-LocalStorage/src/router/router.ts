@@ -40,7 +40,7 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach(to => {
+router.beforeEach((to) => {
   const requiresAdmin = to.meta.requiresAdmin;
   const { isAdmin, isAuthenticated } = useAuthStore();
 

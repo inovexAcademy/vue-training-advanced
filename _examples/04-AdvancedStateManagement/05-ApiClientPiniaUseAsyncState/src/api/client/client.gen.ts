@@ -2,12 +2,7 @@
 
 import { createSseClient } from '../core/serverSentEvents.gen';
 import type { HttpMethod } from '../core/types.gen';
-import type {
-  Client,
-  Config,
-  RequestOptions,
-  ResolvedRequestOptions,
-} from './types.gen';
+import type { Client, Config, RequestOptions, ResolvedRequestOptions } from './types.gen';
 import {
   buildUrl,
   createConfig,
@@ -33,12 +28,7 @@ export const createClient = (config: Config = {}): Client => {
     return getConfig();
   };
 
-  const interceptors = createInterceptors<
-    Request,
-    Response,
-    unknown,
-    ResolvedRequestOptions
-  >();
+  const interceptors = createInterceptors<Request, Response, unknown, ResolvedRequestOptions>();
 
   const beforeRequest = async (options: RequestOptions) => {
     const opts = {
@@ -74,7 +64,7 @@ export const createClient = (config: Config = {}): Client => {
     return { opts, url };
   };
 
-  const request: Client['request'] = async options => {
+  const request: Client['request'] = async (options) => {
     // @ts-expect-error
     const { opts, url } = await beforeRequest(options);
     const requestInit: ReqInit = {
@@ -108,10 +98,7 @@ export const createClient = (config: Config = {}): Client => {
     };
 
     if (response.ok) {
-      if (
-        response.status === 204 ||
-        response.headers.get('Content-Length') === '0'
-      ) {
+      if (response.status === 204 || response.headers.get('Content-Length') === '0') {
         return opts.responseStyle === 'data'
           ? {}
           : {
@@ -194,21 +181,19 @@ export const createClient = (config: Config = {}): Client => {
         };
   };
 
-  const makeMethodFn =
-    (method: Uppercase<HttpMethod>) => (options: RequestOptions) =>
-      request({ ...options, method });
+  const makeMethodFn = (method: Uppercase<HttpMethod>) => (options: RequestOptions) =>
+    request({ ...options, method });
 
-  const makeSseFn =
-    (method: Uppercase<HttpMethod>) => async (options: RequestOptions) => {
-      const { opts, url } = await beforeRequest(options);
-      return createSseClient({
-        ...opts,
-        body: opts.body as BodyInit | null | undefined,
-        headers: opts.headers as unknown as Record<string, string>,
-        method,
-        url,
-      });
-    };
+  const makeSseFn = (method: Uppercase<HttpMethod>) => async (options: RequestOptions) => {
+    const { opts, url } = await beforeRequest(options);
+    return createSseClient({
+      ...opts,
+      body: opts.body as BodyInit | null | undefined,
+      headers: opts.headers as unknown as Record<string, string>,
+      method,
+      url,
+    });
+  };
 
   return {
     buildUrl,

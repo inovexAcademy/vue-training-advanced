@@ -73,9 +73,7 @@ describe('ProductList', () => {
     it('when ProductCard emits "add-to-card", should call shoppingCartStore.addToCart', async () => {
       const product = availableProducts[0];
       const { wrapper, shoppingCartStore, productStore } = setupResult;
-      productStore.getProductById = vi
-        .fn()
-        .mockResolvedValue({ product, error: null });
+      productStore.getProductById = vi.fn().mockResolvedValue({ product, error: null });
       const addToCartSpy = vi.spyOn(shoppingCartStore, 'addToCart');
       const firstProductCard = wrapper.findAllComponents(ProductCard).at(0);
 
@@ -106,11 +104,7 @@ describe('ProductList', () => {
     });
   });
 
-  const setup = ({
-    availableProducts = [],
-  }: {
-    availableProducts?: Product[];
-  }) => {
+  const setup = ({ availableProducts = [] }: { availableProducts?: Product[] }) => {
     const wrapper = mount(ProductList, {
       ...mountingOptions,
     });

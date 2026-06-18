@@ -5,7 +5,7 @@ export type AiSummary = {
 };
 
 export const getAiSummaryMockById = (id: string): AiSummary => {
-  return AI_SUMMARY_MOCKS.find(summary => summary.id === id)!;
+  return AI_SUMMARY_MOCKS.find((summary) => summary.id === id)!;
 };
 
 export const AI_SUMMARY_MOCKS: AiSummary[] = [

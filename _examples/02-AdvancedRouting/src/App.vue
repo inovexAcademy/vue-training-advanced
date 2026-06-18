@@ -12,16 +12,16 @@
 </template>
 
 <style scoped>
-.app {
-  padding: 10vmin;
-  box-sizing: border-box;
-  border-radius: 32px;
-  background: #42b883ff;
-  width: 95vw;
-  height: 95vh;
-}
+  .app {
+    padding: 10vmin;
+    box-sizing: border-box;
+    border-radius: 32px;
+    background: #42b883ff;
+    width: 95vw;
+    height: 95vh;
+  }
 
-main {
-  height: calc(100% - 40px);
-}
+  main {
+    height: calc(100% - 40px);
+  }
 </style>

@@ -1,15 +1,15 @@
 <script lang="ts" setup>
-import { ref, onErrorCaptured } from 'vue';
-const count = ref(0);
+  import { ref, onErrorCaptured } from 'vue';
+  const count = ref(0);
 
-const handleClick = () => {
-  throw new Error('Fail!');
-};
+  const handleClick = () => {
+    throw new Error('Fail!');
+  };
 
-onErrorCaptured(err => {
-  console.log('An error occurred: ', err.message);
-  return false;
-});
+  onErrorCaptured((err) => {
+    console.log('An error occurred: ', err.message);
+    return false;
+  });
 </script>
 
 <template>

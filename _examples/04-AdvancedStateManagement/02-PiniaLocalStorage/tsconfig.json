@@ -6,9 +6,7 @@
     "strict": true,
     "strictNullChecks": true,
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
     "resolveJsonModule": true,
     "target": "esnext",
@@ -22,7 +20,5 @@
     "./package.json",
     "./tests/unit/**/*"
   ],
-  "exclude": [
-    "./src/api"
-  ]
+  "exclude": ["./src/api"]
 }

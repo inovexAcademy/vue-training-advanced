@@ -87,7 +87,7 @@ describe('ProductCard', () => {
       title: 'Product title',
       description: 'Product description',
       price: 39.9,
-    },
+    }
   ) => ({
     wrapper: mount(ProductCard, {
       ...mountingOptions,

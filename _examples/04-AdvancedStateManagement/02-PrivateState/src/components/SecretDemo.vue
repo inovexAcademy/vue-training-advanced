@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { useSecretStore } from '../store/secretStore';
+  import { useSecretStore } from '../store/secretStore';
 
-const secretStore = useSecretStore();
-console.debug('🔥 secretStore.$state', secretStore.$state);
+  const secretStore = useSecretStore();
+  console.debug('🔥 secretStore.$state', secretStore.$state);
 </script>
 
 <template>
@@ -17,8 +17,8 @@ console.debug('🔥 secretStore.$state', secretStore.$state);
 </template>
 
 <style lang="scss" scoped>
-.app {
-  margin: 0 auto;
-  padding: 16px;
-}
+  .app {
+    margin: 0 auto;
+    padding: 16px;
+  }
 </style>

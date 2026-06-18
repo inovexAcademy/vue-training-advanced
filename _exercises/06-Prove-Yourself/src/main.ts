@@ -26,10 +26,7 @@ export async function setupApp() {
 setupApp();
 
 async function prepareApp() {
-  if (
-    process.env.NODE_ENV === 'development' ||
-    process.env.NODE_ENV === 'test'
-  ) {
+  if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
     const { worker } = await import('./mocks/browser');
     return worker.start({
       serviceWorker: {

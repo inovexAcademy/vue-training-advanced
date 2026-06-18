@@ -16,7 +16,7 @@ test.describe('Add to cart', () => {
         .getByRole('listitem')
         .filter({ hasText: product.title })
         .getByRole('button')
-        .filter({ hasText: "Add to cart" });
+        .filter({ hasText: 'Add to cart' });
 
       await addToCartButton.click();
 

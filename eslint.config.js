@@ -37,5 +37,5 @@ export default typescriptEslint.config(
       ],
     },
   },
-  eslintConfigPrettier,
+  eslintConfigPrettier
 );

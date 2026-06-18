@@ -1,18 +1,18 @@
 <script lang="ts" setup>
-import { useColorMode } from '@vueuse/core';
-import { OnyxAppLayout, useThemeTransition } from 'sit-onyx';
-import { watchEffect } from 'vue';
-import ExerciseBanner from '../../../shared/ExerciseBanner.vue';
-import { useUserSettingsStore } from './stores/userSettings';
+  import { useColorMode } from '@vueuse/core';
+  import { OnyxAppLayout, useThemeTransition } from 'sit-onyx';
+  import { watchEffect } from 'vue';
+  import ExerciseBanner from '../../../shared/ExerciseBanner.vue';
+  import { useUserSettingsStore } from './stores/userSettings';
 
-const userSettingsStore = useUserSettingsStore();
-const { store: colorScheme } = useColorMode({ disableTransition: false });
+  const userSettingsStore = useUserSettingsStore();
+  const { store: colorScheme } = useColorMode({ disableTransition: false });
 
-useThemeTransition(colorScheme);
+  useThemeTransition(colorScheme);
 
-watchEffect(() => {
-  colorScheme.value = userSettingsStore.theme;
-});
+  watchEffect(() => {
+    colorScheme.value = userSettingsStore.theme;
+  });
 </script>
 
 <template>

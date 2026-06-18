@@ -7,8 +7,5 @@ export default defineConfig({
     path: './src/api',
     format: 'prettier',
   },
-  plugins: [
-    ...defaultPlugins,
-    { name: '@hey-api/client-fetch', throwOnError: true },
-  ],
+  plugins: [...defaultPlugins, { name: '@hey-api/client-fetch', throwOnError: true }],
 });

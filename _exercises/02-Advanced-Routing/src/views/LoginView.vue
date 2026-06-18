@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { OnyxButton, OnyxCard, OnyxLink, OnyxPageLayout } from 'sit-onyx';
-// import { useAuthStore } from '@/stores/auth';
-// import { useRoute, useRouter } from 'vue-router';
+  // import { useAuthStore } from '@/stores/auth';
+  // import { useRouter } from 'vue-router';
+  import { OnyxButton, OnyxCard, OnyxLink, OnyxPageLayout } from 'sit-onyx';
 
-// const { login } = useAuthStore();
+  // const router = useRouter();
+  // const { login } = useAuthStore();
 
-const handleLogin = async (isAdmin?: boolean) => {
-  // Use the login function here to login the user.
-  // Hint: To log in as admin, pass true as the argument.
-  // What should happen after the user logs in?
-};
+  const handleLogin = async (isAdmin?: boolean) => {
+    // Use the login function here to login the user.
+    // Hint: To log in as admin, pass true as the argument.
+    // What should happen after the user logs in?
+  };
 </script>
 
 <template>
@@ -25,18 +26,18 @@ const handleLogin = async (isAdmin?: boolean) => {
 </template>
 
 <style scoped lang="scss">
-.login-card {
-  position: relative;
-  width: fit-content;
-  margin: 0 auto;
-  gap: 32px;
-  padding: 48px;
-  align-items: center;
-}
+  .login-card {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    gap: 32px;
+    padding: 48px;
+    align-items: center;
+  }
 
-.home-link {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-}
+  .home-link {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
 </style>

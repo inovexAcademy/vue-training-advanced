@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useDogStore } from './store/dogs';
+  import { useDogStore } from './store/dogs';
 
-const dogStore = useDogStore();
+  const dogStore = useDogStore();
 </script>
 
 <template>
@@ -20,11 +20,11 @@ const dogStore = useDogStore();
 </template>
 
 <style lang="scss" scoped>
-.error {
-  background-color: rgb(246, 206, 206);
-  border: 2px solid rgb(166, 102, 102);
-  border-radius: 8px;
-  padding: 12px 8px;
-  margin-top: 16px;
-}
+  .error {
+    background-color: rgb(246, 206, 206);
+    border: 2px solid rgb(166, 102, 102);
+    border-radius: 8px;
+    padding: 12px 8px;
+    margin-top: 16px;
+  }
 </style>

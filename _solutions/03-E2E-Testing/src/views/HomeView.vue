@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import ProductList from '@/components/ProductList.vue';
-import ShoppingCart from '@/components/ShoppingCart.vue';
-import { OnyxLink, OnyxPageLayout, OnyxSidebar } from 'sit-onyx';
+  import ProductList from '@/components/ProductList.vue';
+  import ShoppingCart from '@/components/ShoppingCart.vue';
+  import { OnyxLink, OnyxPageLayout, OnyxSidebar } from 'sit-onyx';
 </script>
 
 <template>
@@ -20,9 +20,9 @@ import { OnyxLink, OnyxPageLayout, OnyxSidebar } from 'sit-onyx';
 </template>
 
 <style scoped lang="scss">
-.sidebar-cta {
-  padding: 16px;
-  display: flex;
-  justify-content: center;
-}
+  .sidebar-cta {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+  }
 </style>

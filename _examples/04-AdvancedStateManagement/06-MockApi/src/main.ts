@@ -8,7 +8,7 @@ import { client } from '@/api/client.gen';
 client.setConfig({ baseUrl: '/api' });
 
 const accessToken = 'unknown'; // msw to the rescue
-client.interceptors.request.use(request => {
+client.interceptors.request.use((request) => {
   request.headers.set('Authorization', `Bearer ${accessToken}`);
   return request;
 });
@@ -20,10 +20,7 @@ prepareApp().then(() => {
 });
 
 async function prepareApp() {
-  if (
-    process.env.NODE_ENV === 'development' ||
-    process.env.NODE_ENV === 'test'
-  ) {
+  if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
     const { worker } = await import('./mocks/browser');
     return worker.start({
       serviceWorker: {

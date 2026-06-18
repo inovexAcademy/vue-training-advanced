@@ -10,7 +10,7 @@ import VueScan, { type VueScanOptions } from 'z-vue-scan';
 client.setConfig({ baseUrl: '/api' });
 
 const accessToken = 'unknown'; // msw to the rescue
-client.interceptors.request.use(request => {
+client.interceptors.request.use((request) => {
   request.headers.set('Authorization', `Bearer ${accessToken}`);
   return request;
 });
@@ -20,8 +20,7 @@ const app = createApp(App);
 app.use(createPinia());
 
 const isScan =
-  document.location.search.includes('scan=true') ||
-  document.location.search.includes('scan=1');
+  document.location.search.includes('scan=true') || document.location.search.includes('scan=1');
 
 app.use<VueScanOptions>(VueScan, {
   enable: isScan,
@@ -34,10 +33,7 @@ prepareApp().then(() => {
 });
 
 async function prepareApp() {
-  if (
-    process.env.NODE_ENV === 'development' ||
-    process.env.NODE_ENV === 'test'
-  ) {
+  if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
     const { worker } = await import('./mocks/browser');
     return worker.start({
       serviceWorker: {

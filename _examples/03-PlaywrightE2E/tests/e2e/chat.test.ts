@@ -4,7 +4,7 @@ test('should allow chatting with Barack Olama', async ({ page }) => {
   await page.goto('localhost:5173/lama/1');
 
   await expect(
-    page.getByRole('heading', { level: 1, name: 'Chat with Barack Olama' }),
+    page.getByRole('heading', { level: 1, name: 'Chat with Barack Olama' })
   ).toBeVisible();
 
   const chatMessages = page.locator('.chat-messages');

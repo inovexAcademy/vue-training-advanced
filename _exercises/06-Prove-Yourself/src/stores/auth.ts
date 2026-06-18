@@ -7,13 +7,13 @@ export const useAuthStore = defineStore('auth', () => {
 
   async function login(admin?: boolean) {
     // Here, you would typically make an API call to log in the user
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     isAdmin.value = admin ?? false;
     isAuthenticated.value = true;
   }
 
   async function logout() {
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     isAdmin.value = false;
     isAuthenticated.value = false;
   }

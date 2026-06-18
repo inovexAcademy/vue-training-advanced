@@ -1,14 +1,14 @@
 <script lang="ts" setup>
-import { onErrorCaptured } from 'vue';
+  import { onErrorCaptured } from 'vue';
 
-const handleChange = () => {
-  throw new Error('Fail!');
-};
+  const handleChange = () => {
+    throw new Error('Fail!');
+  };
 
-onErrorCaptured(err => {
-  console.log('An error occurred: ', err.message);
-  return false;
-});
+  onErrorCaptured((err) => {
+    console.log('An error occurred: ', err.message);
+    return false;
+  });
 </script>
 
 <template>

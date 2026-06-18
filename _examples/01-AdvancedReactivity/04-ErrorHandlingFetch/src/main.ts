@@ -18,8 +18,7 @@ app.config.errorHandler = (err, instance, info) => {
 };
 
 const isScan =
-  document.location.search.includes('scan=true') ||
-  document.location.search.includes('scan=1');
+  document.location.search.includes('scan=true') || document.location.search.includes('scan=1');
 
 app.use<VueScanOptions>(VueScan, {
   enable: isScan,

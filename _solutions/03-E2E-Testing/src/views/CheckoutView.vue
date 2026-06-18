@@ -1,15 +1,9 @@
 <script setup lang="ts">
-import ShoppingCart from '@/components/ShoppingCart.vue';
-import { useShoppingCartStore } from '@/stores/shoppingCart';
-import {
-  OnyxButton,
-  OnyxCard,
-  OnyxHeadline,
-  OnyxLink,
-  OnyxPageLayout,
-} from 'sit-onyx';
+  import ShoppingCart from '@/components/ShoppingCart.vue';
+  import { useShoppingCartStore } from '@/stores/shoppingCart';
+  import { OnyxButton, OnyxCard, OnyxHeadline, OnyxLink, OnyxPageLayout } from 'sit-onyx';
 
-const shoppingCartStore = useShoppingCartStore();
+  const shoppingCartStore = useShoppingCartStore();
 </script>
 
 <template>
@@ -31,13 +25,13 @@ const shoppingCartStore = useShoppingCartStore();
 </template>
 
 <style scoped lang="scss">
-.title {
-  margin: 16px 0;
-}
+  .title {
+    margin: 16px 0;
+  }
 
-.checkout-cta {
-  margin-top: 16px;
-  display: flex;
-  justify-content: center;
-}
+  .checkout-cta {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+  }
 </style>

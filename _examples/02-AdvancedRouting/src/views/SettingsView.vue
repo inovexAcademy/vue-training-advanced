@@ -11,10 +11,10 @@
 </template>
 
 <style scoped>
-.settings {
-  padding: 16px;
-  border-radius: 16px;
-  background: #40a0a4ff;
-  height: 80%;
-}
+  .settings {
+    padding: 16px;
+    border-radius: 16px;
+    background: #40a0a4ff;
+    height: 80%;
+  }
 </style>

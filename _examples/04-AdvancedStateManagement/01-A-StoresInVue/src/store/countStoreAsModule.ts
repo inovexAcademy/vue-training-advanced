@@ -1,6 +1,6 @@
-import { computed, ref } from "vue";
+import { computed, ref } from 'vue';
 
-const count = ref(0)
+const count = ref(0);
 
 const doubleCount = computed(() => count.value * 2);
 
@@ -16,7 +16,7 @@ const myStoreAsModule = {
   count,
   doubleCount,
   increment,
-  decrement
-}
+  decrement,
+};
 
 export default myStoreAsModule;

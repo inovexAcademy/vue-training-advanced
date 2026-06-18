@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { iconHeart } from '@sit-onyx/icons';
-import { OnyxInfoCard, OnyxLink, OnyxPageLayout, OnyxSidebar } from 'sit-onyx';
+  import { iconHeart } from '@sit-onyx/icons';
+  import { OnyxInfoCard, OnyxLink, OnyxPageLayout, OnyxSidebar } from 'sit-onyx';
 </script>
 
 <template>
@@ -11,8 +11,7 @@ import { OnyxInfoCard, OnyxLink, OnyxPageLayout, OnyxSidebar } from 'sit-onyx';
       :icon="iconHeart"
       class="welcome-card"
     >
-      Congratulations! You are now ready to take part in the exercises of the
-      Course!
+      Congratulations! You are now ready to take part in the exercises of the Course!
     </OnyxInfoCard>
 
     <template #sidebarRight>
@@ -27,9 +26,7 @@ import { OnyxInfoCard, OnyxLink, OnyxPageLayout, OnyxSidebar } from 'sit-onyx';
               <OnyxLink href="https://play.vuejs.org/">Vue Playground</OnyxLink>
             </li>
             <li>
-              <OnyxLink href="https://template-explorer.vuejs.org/"
-                >Vue Template Explorer</OnyxLink
-              >
+              <OnyxLink href="https://template-explorer.vuejs.org/">Vue Template Explorer</OnyxLink>
             </li>
           </ul>
 
@@ -53,9 +50,7 @@ import { OnyxInfoCard, OnyxLink, OnyxPageLayout, OnyxSidebar } from 'sit-onyx';
           <b>Cheat Sheets</b>
           <ul>
             <li>
-              <OnyxLink href="https://vue-cheatsheet.themeselection.com/"
-                >Vue Sheet</OnyxLink
-              >
+              <OnyxLink href="https://vue-cheatsheet.themeselection.com/">Vue Sheet</OnyxLink>
             </li>
             <li>
               <OnyxLink href="https://learnvue.co/LearnVue-Vue-3-Cheatsheet.pdf"
@@ -70,25 +65,25 @@ import { OnyxInfoCard, OnyxLink, OnyxPageLayout, OnyxSidebar } from 'sit-onyx';
 </template>
 
 <style scoped lang="scss">
-.welcome-card {
-  margin: 0 auto;
-  margin-top: 100px;
-  max-width: 600px;
-  font-size: 32px;
-}
+  .welcome-card {
+    margin: 0 auto;
+    margin-top: 100px;
+    max-width: 600px;
+    font-size: 32px;
+  }
 
-.sidebar-headline {
-  margin-bottom: 24px;
-}
+  .sidebar-headline {
+    margin-bottom: 24px;
+  }
 
-.sidebar-cta {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  .sidebar-cta {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-b {
-  margin: 12px 0 6px 0;
-}
+  b {
+    margin: 12px 0 6px 0;
+  }
 </style>

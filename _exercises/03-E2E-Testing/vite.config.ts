@@ -23,14 +23,7 @@ export default defineConfig(({ mode }) => ({
     run([
       {
         name: 'Generate .env typings',
-        run: [
-          'pnpm',
-          'import-meta-env-typescript',
-          '-x',
-          '.env.example',
-          '-o',
-          './src/types/',
-        ],
+        run: ['pnpm', 'import-meta-env-typescript', '-x', '.env.example', '-o', './src/types/'],
         pattern: ['.env.example'],
         startup: true,
       },

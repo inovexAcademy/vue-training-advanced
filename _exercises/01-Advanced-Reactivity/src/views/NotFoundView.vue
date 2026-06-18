@@ -9,5 +9,5 @@
 </template>
 
 <script lang="ts" setup>
-import { OnyxHeadline, OnyxInfoCard, OnyxLink, OnyxPageLayout } from 'sit-onyx';
+  import { OnyxHeadline, OnyxInfoCard, OnyxLink, OnyxPageLayout } from 'sit-onyx';
 </script>

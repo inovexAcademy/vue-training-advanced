@@ -102,11 +102,7 @@ describe('ProductList', () => {
     });
   });
 
-  const setup = ({
-    availableProducts = [],
-  }: {
-    availableProducts?: Product[];
-  }) => {
+  const setup = ({ availableProducts = [] }: { availableProducts?: Product[] }) => {
     vi.spyOn(products, 'fetchProducts').mockResolvedValue(availableProducts);
 
     const shoppingCartStore = useShoppingCartStore();

@@ -1,16 +1,16 @@
 <script lang="ts" setup>
-import { watch } from 'vue';
-import { useFilterCriteriaStore } from '../store/filterCriteriaWithWatch';
+  import { watch } from 'vue';
+  import { useFilterCriteriaStore } from '../store/filterCriteriaWithWatch';
 
-const filterCriteriaStore = useFilterCriteriaStore();
+  const filterCriteriaStore = useFilterCriteriaStore();
 
-watch(
-  filterCriteriaStore,
-  state => {
-    localStorage.setItem('filterCriteria', JSON.stringify(state));
-  },
-  { deep: true },
-);
+  watch(
+    filterCriteriaStore,
+    (state) => {
+      localStorage.setItem('filterCriteria', JSON.stringify(state));
+    },
+    { deep: true }
+  );
 </script>
 
 <template>
@@ -23,11 +23,7 @@ watch(
         id="mileage"
         :value="filterCriteriaStore.mileage"
         type="number"
-        @input="
-          filterCriteriaStore.setMileage(
-            Number(($event.target as HTMLInputElement).value),
-          )
-        "
+        @input="filterCriteriaStore.setMileage(Number(($event.target as HTMLInputElement).value))"
       />
       <label for="engineType">Engine Type:</label>
       <select
@@ -35,10 +31,7 @@ watch(
         :value="filterCriteriaStore.engineType"
         @change="
           filterCriteriaStore.setEngineType(
-            ($event.target as HTMLSelectElement).value as
-              | 'electric'
-              | 'combustion'
-              | 'hybrid',
+            ($event.target as HTMLSelectElement).value as 'electric' | 'combustion' | 'hybrid'
           )
         "
       >
@@ -56,7 +49,7 @@ watch(
         @input="
           filterCriteriaStore.setPriceRange(
             Number(($event.target as HTMLInputElement).value),
-            filterCriteriaStore.priceRange.max,
+            filterCriteriaStore.priceRange.max
           )
         "
       />
@@ -69,7 +62,7 @@ watch(
         @input="
           filterCriteriaStore.setPriceRange(
             filterCriteriaStore.priceRange.min,
-            Number(($event.target as HTMLInputElement).value),
+            Number(($event.target as HTMLInputElement).value)
           )
         "
       />
@@ -87,28 +80,28 @@ watch(
 </template>
 
 <style lang="scss" scoped>
-.app {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 16px;
-}
+  .app {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 16px;
+  }
 
-.title {
-  text-align: center;
-  margin-bottom: 16px;
-}
+  .title {
+    text-align: center;
+    margin-bottom: 16px;
+  }
 
-.filter {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+  .filter {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
-.selection {
-  margin-top: 16px;
-  padding: 12px 8px;
-  border: 2px solid rgb(67, 120, 90);
-  border-radius: 8px;
-  background-color: rgb(205, 238, 227);
-}
+  .selection {
+    margin-top: 16px;
+    padding: 12px 8px;
+    border: 2px solid rgb(67, 120, 90);
+    border-radius: 8px;
+    background-color: rgb(205, 238, 227);
+  }
 </style>

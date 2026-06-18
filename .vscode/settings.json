@@ -18,9 +18,7 @@
   "typescript.inlayHints.parameterNames.enabled": "literals",
   "typescript.inlayHints.parameterTypes.enabled": true,
   "typescript.inlayHints.propertyDeclarationTypes.enabled": false,
-  "cSpell.words": [
-    "Pinia"
-  ],
+  "cSpell.words": ["Pinia"],
   "vue.inlayHints.missingProps": true,
   "vue.inlayHints.vBindShorthand": true,
   "vue.inlayHints.destructuredProps": true,
@@ -40,11 +38,11 @@
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "chat.disableAIFeatures": true,
-  "chat.agent.enabled": false,
+  "chat.disableAIFeatures": false,
+  "chat.agent.enabled": true,
   "chat.commandCenter.enabled": false,
   "tabnine.experimentalAutoImports": false,
-  "chat.notifyWindowOnConfirmation": false,
+  "chat.notifyWindowOnConfirmation": "off",
   "vitest.maximumConfigs": 50,
   "telemetry.feedback.enabled": false,
   "githubPullRequests.codingAgent.enabled": true,
@@ -59,5 +57,8 @@
       "gitDecoration.stageModifiedResourceForeground": "#000000",
       "gitDecoration.stageDeletedResourceForeground": "#000000"
     }
+  },
+  "chat.tools.terminal.autoApprove": {
+    "pnpm": true
   }
 }

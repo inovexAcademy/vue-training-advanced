@@ -7,8 +7,7 @@ import VueScan, { type VueScanOptions } from 'z-vue-scan';
 const app = createApp(App);
 
 const isScan =
-  document.location.search.includes('scan=true') ||
-  document.location.search.includes('scan=1');
+  document.location.search.includes('scan=true') || document.location.search.includes('scan=1');
 
 app.use<VueScanOptions>(VueScan, {
   enable: isScan,

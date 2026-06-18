@@ -13,8 +13,7 @@ const app = createApp(App);
 app.use(pinia);
 
 const isScan =
-  document.location.search.includes('scan=true') ||
-  document.location.search.includes('scan=1');
+  document.location.search.includes('scan=true') || document.location.search.includes('scan=1');
 
 app.use<VueScanOptions>(VueScan, {
   enable: isScan,

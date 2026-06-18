@@ -1,16 +1,16 @@
 <script lang="ts" setup>
-import ProductList from '@/components/ProductList.vue';
-import ShoppingCart from '@/components/ShoppingCart.vue';
-import { useAuthStore } from '@/stores/auth';
-import { OnyxLink, OnyxPageLayout, OnyxSidebar } from 'sit-onyx';
+  import ProductList from '@/components/ProductList.vue';
+  import ShoppingCart from '@/components/ShoppingCart.vue';
+  import { useAuthStore } from '@/stores/auth';
+  import { OnyxLink, OnyxPageLayout, OnyxSidebar } from 'sit-onyx';
 
-const { isAuthenticated, isAdmin, logout } = useAuthStore();
+  const { isAuthenticated, isAdmin, logout } = useAuthStore();
 
-const handleLogout = () => {
-  logout().then(() => {
-    window.location.reload();
-  });
-};
+  const handleLogout = () => {
+    logout().then(() => {
+      window.location.reload();
+    });
+  };
 </script>
 
 <template>
@@ -34,17 +34,17 @@ const handleLogout = () => {
 </template>
 
 <style scoped lang="scss">
-.sidebar-cta {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-}
+  .sidebar-cta {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
 
-.admin-link {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-}
+  .admin-link {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
 </style>

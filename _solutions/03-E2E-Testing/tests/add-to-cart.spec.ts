@@ -13,7 +13,7 @@ test.describe('Add to cart', () => {
       await expect(page.getByTestId('shopping-cart-list-item')).toHaveCount(0);
     });
 
-    products.forEach(product => {
+    products.forEach((product) => {
       test.describe(`when add-to-cart button of ${product.title} is clicked`, () => {
         test.beforeEach(async ({ page }) => {
           const addToCartButton = page
@@ -35,9 +35,7 @@ test.describe('Add to cart', () => {
         });
 
         test(`then displays the quantity 1`, async ({ page }) => {
-          const shoppingCartItem = page
-            .getByTestId('shopping-cart')
-            .getByText('Quantity: 1');
+          const shoppingCartItem = page.getByTestId('shopping-cart').getByText('Quantity: 1');
 
           await expect(shoppingCartItem).toBeVisible();
         });
@@ -74,9 +72,7 @@ test.describe('Add to cart', () => {
         });
 
         test(`then displays the quantity 2`, async ({ page }) => {
-          const shoppingCartItem = page
-            .getByTestId('shopping-cart')
-            .getByText('Quantity: 2');
+          const shoppingCartItem = page.getByTestId('shopping-cart').getByText('Quantity: 2');
 
           await expect(shoppingCartItem).toBeVisible();
         });
@@ -121,9 +117,7 @@ test.describe('Add to cart', () => {
         await removeButton.click();
       });
 
-      test(`then removes the product from the shopping cart`, async ({
-        page,
-      }) => {
+      test(`then removes the product from the shopping cart`, async ({ page }) => {
         const shoppingCartItem = page
           .getByTestId('shopping-cart-list-item')
           .getByRole('heading', { name: product!.title });

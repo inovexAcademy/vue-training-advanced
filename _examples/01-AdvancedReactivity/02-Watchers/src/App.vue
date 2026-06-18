@@ -1,28 +1,28 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-import Interval from './intervalExample.vue';
-import Seconds from './secondsExample.vue';
+  import { ref, watch } from 'vue';
+  import Interval from './intervalExample.vue';
+  import Seconds from './secondsExample.vue';
 
-function fetchPrice(newProduct: string) {
-  return Promise.resolve(12);
-}
+  function fetchPrice(newProduct: string) {
+    return Promise.resolve(12);
+  }
 
-const shown = ref(true);
-const product = ref({ name: 'Apple', type: 'fruit' });
-const price = ref(0);
+  const shown = ref(true);
+  const product = ref({ name: 'Apple', type: 'fruit' });
+  const price = ref(0);
 
-watch(
-  () => product.value.name,
-  async newProduct => {
-    console.debug('🔥 watch', newProduct);
-    price.value = await fetchPrice(newProduct);
-  },
-);
+  watch(
+    () => product.value.name,
+    async (newProduct) => {
+      console.debug('🔥 watch', newProduct);
+      price.value = await fetchPrice(newProduct);
+    }
+  );
 
-const handleChange = e => {
-  console.debug('🔥 handlechange', e);
-  product.value.name = e.target.value;
-};
+  const handleChange = (e) => {
+    console.debug('🔥 handlechange', e);
+    product.value.name = e.target.value;
+  };
 </script>
 
 <template>

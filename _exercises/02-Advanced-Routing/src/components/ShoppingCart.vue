@@ -1,22 +1,19 @@
 <script setup lang="ts">
-import { OnyxIconButton, OnyxCard, OnyxHeadline } from 'sit-onyx';
-import trash from '@sit-onyx/icons/trash.svg?raw';
-import { useShoppingCartStore } from '@/stores/shoppingCart';
+  import { OnyxIconButton, OnyxCard, OnyxHeadline } from 'sit-onyx';
+  import trash from '@sit-onyx/icons/trash.svg?raw';
+  import { useShoppingCartStore } from '@/stores/shoppingCart';
 
-const shoppingCartStore = useShoppingCartStore();
+  const shoppingCartStore = useShoppingCartStore();
 
-function handleRemove(productId: number) {
-  shoppingCartStore.removeFromCart(productId);
-}
+  function handleRemove(productId: number) {
+    shoppingCartStore.removeFromCart(productId);
+  }
 </script>
 
 <template>
   <div class="shopping-cart">
     <OnyxHeadline is="h2">Shopping Cart</OnyxHeadline>
-    <ul
-      v-if="shoppingCartStore.cartItems.length > 0"
-      data-testid="product-list"
-    >
+    <ul v-if="shoppingCartStore.cartItems.length > 0" data-testid="product-list">
       <li
         v-for="cartItem in shoppingCartStore.cartItems"
         :key="cartItem.product.id"
@@ -41,27 +38,27 @@ function handleRemove(productId: number) {
 </template>
 
 <style scoped lang="css">
-.shopping-cart {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 16px;
-
-  ul {
+  .shopping-cart {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding: 0;
+    gap: 16px;
+    padding: 16px;
 
-    li {
-      list-style: none;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 0;
 
-      .card-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
+      li {
+        list-style: none;
+
+        .card-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+        }
       }
     }
   }
-}
 </style>

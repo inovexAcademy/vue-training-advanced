@@ -5,10 +5,10 @@
 </template>
 
 <style scoped>
-.home {
-  padding: 16px;
-  border-radius: 16px;
-  background: #40a0a4ff;
-  height: 80%;
-}
+  .home {
+    padding: 16px;
+    border-radius: 16px;
+    background: #40a0a4ff;
+    height: 80%;
+  }
 </style>

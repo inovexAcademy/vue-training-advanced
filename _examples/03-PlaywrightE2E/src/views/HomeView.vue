@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import LamaCard from '../components/LamaCard.vue';
-import { lamaData } from '../lama-data';
+  import LamaCard from '../components/LamaCard.vue';
+  import { lamaData } from '../lama-data';
 </script>
 
 <template>
@@ -9,25 +9,21 @@ import { lamaData } from '../lama-data';
   <p>Choose a Lama to chat with:</p>
   <ul class="lama-list">
     <li v-for="lama in lamaData" :key="lama.id">
-      <LamaCard
-        :id="lama.id"
-        :name="lama.name"
-        :description="lama.description"
-      />
+      <LamaCard :id="lama.id" :name="lama.name" :description="lama.description" />
     </li>
   </ul>
 </template>
 
 <style scoped>
-h1 {
-  margin-top: 0;
-}
+  h1 {
+    margin-top: 0;
+  }
 
-.lama-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 2em;
-  justify-content: center;
-}
+  .lama-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+  }
 </style>

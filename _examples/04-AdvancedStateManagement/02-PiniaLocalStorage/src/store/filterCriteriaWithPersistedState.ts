@@ -37,5 +37,5 @@ export const useFilterCriteriaStore = defineStore(
   {
     // 🔮🧙‍♂️ the magic happens here
     persist: true,
-  },
+  }
 );

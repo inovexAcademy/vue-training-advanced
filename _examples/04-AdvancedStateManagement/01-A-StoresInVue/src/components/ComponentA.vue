@@ -1,16 +1,16 @@
 <script lang="ts" setup>
-import { useMouse } from '@/composables/useMouse';
-import { countStoreClassSingleton } from '@/store/countStoreAsClass';
-import { useCountStore } from '@/store/countStoreAsComposable';
-import { useCountStorePinia } from '@/store/countStoreWithPinia';
-import { useTemplateRef } from 'vue';
-import countStore from '../store/countStoreAsModule';
+  import { useMouse } from '@/composables/useMouse';
+  import { countStoreClassSingleton } from '@/store/countStoreAsClass';
+  import { useCountStore } from '@/store/countStoreAsComposable';
+  import { useCountStorePinia } from '@/store/countStoreWithPinia';
+  import { useTemplateRef } from 'vue';
+  import countStore from '../store/countStoreAsModule';
 
-const compA = useTemplateRef('compA');
-const mouse = useMouse(compA);
+  const compA = useTemplateRef('compA');
+  const mouse = useMouse(compA);
 
-const composableCountStore = useCountStore();
-const piniaCountStore = useCountStorePinia();
+  const composableCountStore = useCountStore();
+  const piniaCountStore = useCountStorePinia();
 </script>
 
 <template>
@@ -35,9 +35,7 @@ const piniaCountStore = useCountStorePinia();
 
     <div class="card">
       <h3>Class Store</h3>
-      <button @click="countStoreClassSingleton.increment">
-        Increase Count
-      </button>
+      <button @click="countStoreClassSingleton.increment">Increase Count</button>
       {{ countStoreClassSingleton.count }}
     </div>
     <br />
@@ -51,22 +49,22 @@ const piniaCountStore = useCountStorePinia();
 </template>
 
 <style lang="scss" scoped>
-.a {
-  position: absolute;
-  width: 330px;
-  left: 20px;
+  .a {
+    position: absolute;
+    width: 330px;
+    left: 20px;
 
-  background: rgb(189, 125, 242);
-  padding: 16px;
-  border-radius: 4px;
-  box-shadow: 0 0 10px gray;
-}
+    background: rgb(189, 125, 242);
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px gray;
+  }
 
-.card {
-  background-color: white;
-  padding: 8px;
-  border-radius: 4px;
-  box-shadow: 0 0 5px gray;
-  display: inline-block;
-}
+  .card {
+    background-color: white;
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px gray;
+    display: inline-block;
+  }
 </style>

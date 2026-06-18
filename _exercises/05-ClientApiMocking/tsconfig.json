@@ -6,12 +6,8 @@
     "strict": true,
     "strictNullChecks": true,
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@tests/*": [
-        "./tests/*"
-      ]
+      "@/*": ["./src/*"],
+      "@tests/*": ["./tests/*"]
     },
     "resolveJsonModule": true,
     "target": "esnext",

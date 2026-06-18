@@ -28,10 +28,7 @@ export const mockProducts: Product[] = [
       qrCode: 'https://example.com/qr/1234567890123',
     },
     thumbnail: 'https://via.placeholder.com/150',
-    images: [
-      'https://via.placeholder.com/150',
-      'https://via.placeholder.com/200',
-    ],
+    images: ['https://via.placeholder.com/150', 'https://via.placeholder.com/200'],
   },
   {
     id: 2,
@@ -60,10 +57,7 @@ export const mockProducts: Product[] = [
       qrCode: 'https://example.com/qr/0987654321098',
     },
     thumbnail: 'https://via.placeholder.com/150',
-    images: [
-      'https://via.placeholder.com/150',
-      'https://via.placeholder.com/200',
-    ],
+    images: ['https://via.placeholder.com/150', 'https://via.placeholder.com/200'],
   },
   {
     id: 3,
@@ -92,10 +86,7 @@ export const mockProducts: Product[] = [
       qrCode: 'https://example.com/qr/1122334455667',
     },
     thumbnail: 'https://via.placeholder.com/150',
-    images: [
-      'https://via.placeholder.com/150',
-      'https://via.placeholder.com/200',
-    ],
+    images: ['https://via.placeholder.com/150', 'https://via.placeholder.com/200'],
   },
 ];
 

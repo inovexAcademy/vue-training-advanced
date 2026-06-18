@@ -7,8 +7,8 @@
 </template>
 
 <style scoped>
-main {
-  padding: 2em;
-  text-align: center;
-}
+  main {
+    padding: 2em;
+    text-align: center;
+  }
 </style>

@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { useMouse } from '@/composables/useMouse';
-import { useTemplateRef } from 'vue';
+  import { useMouse } from '@/composables/useMouse';
+  import { useTemplateRef } from 'vue';
 
-const compB = useTemplateRef('compB');
-const mouse = useMouse(compB);
+  const compB = useTemplateRef('compB');
+  const mouse = useMouse(compB);
 </script>
 
 <template>
@@ -14,16 +14,16 @@ const mouse = useMouse(compB);
 </template>
 
 <style lang="scss" scoped>
-.b {
-  position: absolute;
-  width: 350px;
-  height: 200px;
-  top: 300px;
-  left: 250px;
+  .b {
+    position: absolute;
+    width: 350px;
+    height: 200px;
+    top: 300px;
+    left: 250px;
 
-  background: rgb(73, 223, 163);
-  padding: 16px;
-  border-radius: 4px;
-  box-shadow: 0 0 10px gray;
-}
+    background: rgb(73, 223, 163);
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px gray;
+  }
 </style>

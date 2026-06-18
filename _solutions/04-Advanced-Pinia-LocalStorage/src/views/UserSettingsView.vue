@@ -1,22 +1,16 @@
 <script setup lang="ts">
-import { useAuthStore } from '@/stores/auth';
-import { useUserSettingsStore } from '@/stores/userSettings';
-import {
-  OnyxCard,
-  OnyxHeadline,
-  OnyxLink,
-  OnyxPageLayout,
-  OnyxSelect,
-} from 'sit-onyx';
+  import { useAuthStore } from '@/stores/auth';
+  import { useUserSettingsStore } from '@/stores/userSettings';
+  import { OnyxCard, OnyxHeadline, OnyxLink, OnyxPageLayout, OnyxSelect } from 'sit-onyx';
 
-const userSettingsStore = useUserSettingsStore();
-const authStore = useAuthStore();
+  const userSettingsStore = useUserSettingsStore();
+  const authStore = useAuthStore();
 
-const handleUsernameChange = (event: InputEvent) => {
-  const target = event.target as HTMLInputElement;
-  const newUsername = target.value;
-  userSettingsStore.setUsername(newUsername);
-};
+  const handleUsernameChange = (event: InputEvent) => {
+    const target = event.target as HTMLInputElement;
+    const newUsername = target.value;
+    userSettingsStore.setUsername(newUsername);
+  };
 </script>
 
 <template>
@@ -34,7 +28,7 @@ const handleUsernameChange = (event: InputEvent) => {
           :value="userSettingsStore.username"
           type="text"
           placeholder="Change username..."
-          @input="event => handleUsernameChange(event)"
+          @input="(event) => handleUsernameChange(event)"
         />
       </div>
       <OnyxSelect
@@ -52,19 +46,19 @@ const handleUsernameChange = (event: InputEvent) => {
 </template>
 
 <style lang="scss" scoped>
-.title {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 1rem;
-}
+  .title {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
 
-.home-link {
-  font-size: 1rem;
-  font-weight: normal;
-}
+  .home-link {
+    font-size: 1rem;
+    font-weight: normal;
+  }
 
-.user-settings-dashboard {
-  max-width: 400px;
-  margin: 0 auto;
-}
+  .user-settings-dashboard {
+    max-width: 400px;
+    margin: 0 auto;
+  }
 </style>

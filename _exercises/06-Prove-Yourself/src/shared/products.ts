@@ -8,9 +8,7 @@ type ProductsResponse = {
 };
 
 export async function fetchProducts(quantity: number = 5): Promise<Product[]> {
-  const rawResponse = await fetch(
-    `https://dummyjson.com/products/?limit=${quantity}`,
-  );
+  const rawResponse = await fetch(`https://dummyjson.com/products/?limit=${quantity}`);
   const response: ProductsResponse = await rawResponse.json();
 
   return response.products;
@@ -45,10 +43,7 @@ export function getProducts(): Product[] {
         qrCode: 'https://example.com/qr/1234567890123',
       },
       thumbnail: 'https://via.placeholder.com/150',
-      images: [
-        'https://via.placeholder.com/150',
-        'https://via.placeholder.com/200',
-      ],
+      images: ['https://via.placeholder.com/150', 'https://via.placeholder.com/200'],
     },
     {
       id: 2,
@@ -77,10 +72,7 @@ export function getProducts(): Product[] {
         qrCode: 'https://example.com/qr/0987654321098',
       },
       thumbnail: 'https://via.placeholder.com/150',
-      images: [
-        'https://via.placeholder.com/150',
-        'https://via.placeholder.com/200',
-      ],
+      images: ['https://via.placeholder.com/150', 'https://via.placeholder.com/200'],
     },
     {
       id: 3,
@@ -109,10 +101,7 @@ export function getProducts(): Product[] {
         qrCode: 'https://example.com/qr/1122334455667',
       },
       thumbnail: 'https://via.placeholder.com/150',
-      images: [
-        'https://via.placeholder.com/150',
-        'https://via.placeholder.com/200',
-      ],
+      images: ['https://via.placeholder.com/150', 'https://via.placeholder.com/200'],
     },
   ];
 }

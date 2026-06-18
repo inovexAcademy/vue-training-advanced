@@ -12,12 +12,12 @@ export const useDogStore = defineStore('dogs', () => {
     if (minAwesomeness.value === 0) {
       return dogs.value;
     }
-    return dogs.value.filter(dog => dog.awesomeness >= minAwesomeness.value);
+    return dogs.value.filter((dog) => dog.awesomeness >= minAwesomeness.value);
   });
 
   const allDogAwsmLevels = computed<number[]>(() => {
     if (!dogs.value) return [];
-    const levels = new Set(dogs.value.map(dog => dog.awesomeness));
+    const levels = new Set(dogs.value.map((dog) => dog.awesomeness));
     return Array.from(levels);
   });
 

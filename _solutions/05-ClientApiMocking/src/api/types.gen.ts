@@ -77,8 +77,7 @@ export type GetAllProductsErrors = {
   };
 };
 
-export type GetAllProductsError =
-  GetAllProductsErrors[keyof GetAllProductsErrors];
+export type GetAllProductsError = GetAllProductsErrors[keyof GetAllProductsErrors];
 
 export type GetAllProductsResponses = {
   /**
@@ -92,8 +91,7 @@ export type GetAllProductsResponses = {
   };
 };
 
-export type GetAllProductsResponse =
-  GetAllProductsResponses[keyof GetAllProductsResponses];
+export type GetAllProductsResponse = GetAllProductsResponses[keyof GetAllProductsResponses];
 
 export type ClientOptions = {
   baseUrl: 'https://dummyjson.com' | (string & {});

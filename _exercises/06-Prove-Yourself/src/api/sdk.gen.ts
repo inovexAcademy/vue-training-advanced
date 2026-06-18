@@ -30,7 +30,7 @@ export type Options<
  * Gets all available products
  */
 export const getAllProducts = <ThrowOnError extends boolean = false>(
-  options?: Options<GetAllProductsData, ThrowOnError>,
+  options?: Options<GetAllProductsData, ThrowOnError>
 ) => {
   return (options?.client ?? _heyApiClient).get<
     GetAllProductsResponses,

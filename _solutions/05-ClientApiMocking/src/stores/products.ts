@@ -6,9 +6,7 @@ export const useProductStore = defineStore('product', () => {
   const products = ref<Product[] | undefined>(undefined);
 
   // load = fetch + set
-  const loadProducts = async (
-    count = 5,
-  ): Promise<{ products: Product[]; error?: string }> => {
+  const loadProducts = async (count = 5): Promise<{ products: Product[]; error?: string }> => {
     const { data, error } = await getAllProducts({ query: { limit: count } });
     if (error) {
       // better think of concept for showing errors to users
@@ -20,11 +18,11 @@ export const useProductStore = defineStore('product', () => {
   };
 
   const getProductById = async (
-    id: number,
+    id: number
   ): Promise<{ product: Product | undefined; error?: string }> => {
     // check whether product is already loaded
-    if (products.value?.find(p => p.id === id)) {
-      return { product: products.value.find(p => p.id === id) };
+    if (products.value?.find((p) => p.id === id)) {
+      return { product: products.value.find((p) => p.id === id) };
     }
 
     const { data, error } = await getAllProducts(); // should be getProductById
@@ -35,7 +33,7 @@ export const useProductStore = defineStore('product', () => {
     }
 
     return {
-      product: data.products?.find(p => p.id === id),
+      product: data.products?.find((p) => p.id === id),
       error: error?.message,
     };
   };

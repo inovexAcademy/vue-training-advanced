@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { reactive } from 'vue';
-import { useDogStore } from './store/dogs';
+  import { reactive } from 'vue';
+  import { useDogStore } from './store/dogs';
 
-const dogStore = reactive(useDogStore());
+  const dogStore = reactive(useDogStore());
 </script>
 
 <template>
@@ -37,24 +37,24 @@ const dogStore = reactive(useDogStore());
 </template>
 
 <style lang="scss" scoped>
-.title {
-  border-top: 1px solid rgb(201, 201, 201);
-  width: 90%;
-}
+  .title {
+    border-top: 1px solid rgb(201, 201, 201);
+    width: 90%;
+  }
 
-.filter-title {
-  text-align: left;
-}
-.filter {
-  display: flex;
-  flex-direction: row;
-}
+  .filter-title {
+    text-align: left;
+  }
+  .filter {
+    display: flex;
+    flex-direction: row;
+  }
 
-.error {
-  background-color: rgb(246, 206, 206);
-  border: 2px solid rgb(166, 102, 102);
-  border-radius: 8px;
-  padding: 12px 8px;
-  margin-top: 16px;
-}
+  .error {
+    background-color: rgb(246, 206, 206);
+    border: 2px solid rgb(166, 102, 102);
+    border-radius: 8px;
+    padding: 12px 8px;
+    margin-top: 16px;
+  }
 </style>

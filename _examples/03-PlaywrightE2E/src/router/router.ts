@@ -14,7 +14,7 @@ export const routes = [
     component: LamaView,
     meta: {
       title: (route: RouteLocation): string =>
-        `LamaChat | Chat with ${lamaData.find(lama => lama.id === Number(route.params.id))?.name}`,
+        `LamaChat | Chat with ${lamaData.find((lama) => lama.id === Number(route.params.id))?.name}`,
     },
   },
 ];
@@ -24,7 +24,7 @@ const router = createRouter({
   routes,
 });
 
-router.afterEach(to => {
+router.afterEach((to) => {
   document.title = to.meta.title(to);
 });
 

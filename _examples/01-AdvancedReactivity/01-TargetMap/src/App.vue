@@ -1,35 +1,35 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+  import { ref } from 'vue';
 
-const currentNewSkill = ref('');
+  const currentNewSkill = ref('');
 
-/**
- * animal: Ref<{
- *   value: Proxy<{
- *     species: 'cat',
- *     name: 'lion',
- *     skills: ['bite', 'scratch']
- *   }>
- * }>
- */
-const animal = ref({
-  species: 'cat',
-  name: 'lion',
-  skills: ['bite', 'scratch'],
-});
+  /**
+   * animal: Ref<{
+   *   value: Proxy<{
+   *     species: 'cat',
+   *     name: 'lion',
+   *     skills: ['bite', 'scratch']
+   *   }>
+   * }>
+   */
+  const animal = ref({
+    species: 'cat',
+    name: 'lion',
+    skills: ['bite', 'scratch'],
+  });
 
-console.debug('🦁 animal', animal);
-console.debug('🦁 animal.value', animal.value);
-console.debug('🦁 animal.value.name', animal.value.name);
+  console.debug('🦁 animal', animal);
+  console.debug('🦁 animal.value', animal.value);
+  console.debug('🦁 animal.value.name', animal.value.name);
 
-const updateSkill = (event: InputEvent) => {
-  currentNewSkill.value = (event.target as HTMLInputElement).value;
-};
+  const updateSkill = (event: InputEvent) => {
+    currentNewSkill.value = (event.target as HTMLInputElement).value;
+  };
 
-const addSkill = () => {
-  animal.value.skills = [...animal.value.skills, currentNewSkill.value];
-  currentNewSkill.value = '';
-};
+  const addSkill = () => {
+    animal.value.skills = [...animal.value.skills, currentNewSkill.value];
+    currentNewSkill.value = '';
+  };
 </script>
 
 <template>

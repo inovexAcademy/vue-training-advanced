@@ -1,27 +1,23 @@
 <script setup lang="ts">
-import plus from '@sit-onyx/icons/plus.svg?raw';
-import { OnyxButton, OnyxCard, OnyxHeadline } from 'sit-onyx';
+  import plus from '@sit-onyx/icons/plus.svg?raw';
+  import { OnyxButton, OnyxCard, OnyxHeadline } from 'sit-onyx';
 
-const props = defineProps<{
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-}>();
+  const props = defineProps<{
+    id: number;
+    title: string;
+    description: string;
+    price: number;
+  }>();
 
-const emit = defineEmits<{
-  'add-to-cart': [id: number];
-  'product-click': [id: number];
-}>();
+  const emit = defineEmits<{
+    'add-to-cart': [id: number];
+    'product-click': [id: number];
+  }>();
 </script>
 
 <template>
   <div class="product-card-wrapper">
-    <OnyxCard
-      class="product-card"
-      clickable
-      @click="$emit('product-click', props.id)"
-    >
+    <OnyxCard class="product-card" clickable @click="$emit('product-click', props.id)">
       <OnyxHeadline is="h3">{{ props.title }}</OnyxHeadline>
       <p class="description">{{ props.description }}</p>
       <p class="price">Price: {{ props.price }} $</p>
@@ -36,31 +32,31 @@ const emit = defineEmits<{
 </template>
 
 <style scoped lang="css">
-.product-card-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-.product-card {
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-
-  &:hover {
-    transform: scale(1.01);
+  .product-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
-}
 
-.add-to-cart-button {
-  margin-left: 0.5rem;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  align-self: flex-end;
-}
+  .product-card {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
 
-.price {
-  &.has-discount {
-    text-decoration: line-through;
+    &:hover {
+      transform: scale(1.01);
+    }
   }
-}
+
+  .add-to-cart-button {
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    align-self: flex-end;
+  }
+
+  .price {
+    &.has-discount {
+      text-decoration: line-through;
+    }
+  }
 </style>

@@ -1,19 +1,13 @@
 <script setup lang="ts">
-import { Theme, useUserSettingsStore } from '@/stores/userSettings';
-import {
-  OnyxCard,
-  OnyxHeadline,
-  OnyxLink,
-  OnyxSelect,
-  OnyxPageLayout,
-} from 'sit-onyx';
+  import { Theme, useUserSettingsStore } from '@/stores/userSettings';
+  import { OnyxCard, OnyxHeadline, OnyxLink, OnyxSelect, OnyxPageLayout } from 'sit-onyx';
 
-const userStore = useUserSettingsStore();
+  const userStore = useUserSettingsStore();
 
-const themeOptions: Array<{ value: Theme; label: string }> = [
-  { value: 'light', label: 'Light Theme' },
-  { value: 'dark', label: 'Dark Theme' },
-];
+  const themeOptions: Array<{ value: Theme; label: string }> = [
+    { value: 'light', label: 'Light Theme' },
+    { value: 'dark', label: 'Dark Theme' },
+  ];
 </script>
 
 <template>
@@ -39,19 +33,19 @@ const themeOptions: Array<{ value: Theme; label: string }> = [
 </template>
 
 <style lang="scss" scoped>
-.title {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 1rem;
-}
+  .title {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
 
-.home-link {
-  font-size: 1rem;
-  font-weight: normal;
-}
+  .home-link {
+    font-size: 1rem;
+    font-weight: normal;
+  }
 
-.user-settings-dashboard {
-  max-width: 400px;
-  margin: 0 auto;
-}
+  .user-settings-dashboard {
+    max-width: 400px;
+    margin: 0 auto;
+  }
 </style>

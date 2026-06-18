@@ -8,14 +8,13 @@ import App from './App.vue';
 const app = createApp(App);
 
 const isScan =
-  document.location.search.includes('scan=true') ||
-  document.location.search.includes('scan=1');
+  document.location.search.includes('scan=true') || document.location.search.includes('scan=1');
 
 app.use<VueScanOptions>(VueScan, {
   enable: isScan,
   displayDuration: 700,
   fadeOutDuration: 400,
 });
-app.use(createPinia())
+app.use(createPinia());
 
 app.mount('#app');

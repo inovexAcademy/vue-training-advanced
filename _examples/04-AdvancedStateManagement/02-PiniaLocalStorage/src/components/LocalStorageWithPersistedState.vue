@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useFilterCriteriaStore } from '../store/filterCriteriaWithPersistedState';
+  import { useFilterCriteriaStore } from '../store/filterCriteriaWithPersistedState';
 
-const filterCriteriaStore = useFilterCriteriaStore();
+  const filterCriteriaStore = useFilterCriteriaStore();
 </script>
 
 <template>
@@ -14,11 +14,7 @@ const filterCriteriaStore = useFilterCriteriaStore();
         id="mileage"
         :value="filterCriteriaStore.mileage"
         type="number"
-        @input="
-          filterCriteriaStore.setMileage(
-            Number(($event.target as HTMLInputElement).value),
-          )
-        "
+        @input="filterCriteriaStore.setMileage(Number(($event.target as HTMLInputElement).value))"
       />
       <label for="engineType">Engine Type:</label>
       <select
@@ -26,10 +22,7 @@ const filterCriteriaStore = useFilterCriteriaStore();
         :value="filterCriteriaStore.engineType"
         @change="
           filterCriteriaStore.setEngineType(
-            ($event.target as HTMLSelectElement).value as
-              | 'electric'
-              | 'combustion'
-              | 'hybrid',
+            ($event.target as HTMLSelectElement).value as 'electric' | 'combustion' | 'hybrid'
           )
         "
       >
@@ -47,7 +40,7 @@ const filterCriteriaStore = useFilterCriteriaStore();
         @input="
           filterCriteriaStore.setPriceRange(
             Number(($event.target as HTMLInputElement).value),
-            filterCriteriaStore.priceRange.max,
+            filterCriteriaStore.priceRange.max
           )
         "
       />
@@ -60,7 +53,7 @@ const filterCriteriaStore = useFilterCriteriaStore();
         @input="
           filterCriteriaStore.setPriceRange(
             filterCriteriaStore.priceRange.min,
-            Number(($event.target as HTMLInputElement).value),
+            Number(($event.target as HTMLInputElement).value)
           )
         "
       />
@@ -78,28 +71,28 @@ const filterCriteriaStore = useFilterCriteriaStore();
 </template>
 
 <style lang="scss" scoped>
-.app {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 16px;
-}
+  .app {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 16px;
+  }
 
-.title {
-  text-align: center;
-  margin-bottom: 16px;
-}
+  .title {
+    text-align: center;
+    margin-bottom: 16px;
+  }
 
-.filter {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+  .filter {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
-.selection {
-  margin-top: 16px;
-  padding: 12px 8px;
-  border: 2px solid rgb(67, 120, 90);
-  border-radius: 8px;
-  background-color: rgb(205, 238, 227);
-}
+  .selection {
+    margin-top: 16px;
+    padding: 12px 8px;
+    border: 2px solid rgb(67, 120, 90);
+    border-radius: 8px;
+    background-color: rgb(205, 238, 227);
+  }
 </style>

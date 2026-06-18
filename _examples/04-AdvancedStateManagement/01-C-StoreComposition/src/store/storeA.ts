@@ -7,6 +7,6 @@ export const useStoreA = defineStore('storeA', () => {
   const name = ref(`Store A uses ${storeB.name}`);
 
   return {
-    name
+    name,
   };
 });
