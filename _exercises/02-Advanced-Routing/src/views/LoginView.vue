@@ -5,8 +5,9 @@ import { OnyxButton, OnyxCard, OnyxLink, OnyxPageLayout } from 'sit-onyx';
 
 // const { login } = useAuthStore();
 
-const handleLogin = async (admin?: boolean) => {
-  // Use the login function here to login the user. Hint: To log in as admin, pass true as the argument.
+const handleLogin = async (isAdmin?: boolean) => {
+  // Use the login function here to login the user.
+  // Hint: To log in as admin, pass true as the argument.
   // What should happen after the user logs in?
 };
 </script>

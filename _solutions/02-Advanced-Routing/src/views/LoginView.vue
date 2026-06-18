@@ -1,27 +1,26 @@
 <script setup lang="ts">
-import { OnyxButton, OnyxCard, OnyxPageLayout, OnyxLink } from 'sit-onyx';
-import { useAuthStore } from '@/stores/auth';
-import { useRoute, useRouter } from 'vue-router';
+  import { useAuthStore } from '@/stores/auth';
+  import { OnyxButton, OnyxCard, OnyxLink, OnyxPageLayout } from 'sit-onyx';
+  import { useRoute, useRouter } from 'vue-router';
 
-const { login } = useAuthStore();
-const router = useRouter();
-const route = useRoute();
+  const { login } = useAuthStore();
+  const router = useRouter();
+  const route = useRoute();
 
-const handleLogin = async (admin?: boolean) => {
-  login(admin).then(() => {
-    const redirectUrl = route.query.redirectUrl;
-    if (typeof redirectUrl === 'string') {
-      router.push(redirectUrl);
-    } else if (
-      Array.isArray(redirectUrl) &&
-      typeof redirectUrl[0] === 'string'
-    ) {
-      router.push(redirectUrl[0]);
-    } else {
-      router.push({ name: 'Home' });
-    }
-  });
-};
+  const handleLogin = async (isAdmin?: boolean) => {
+    login(isAdmin).then(() => {
+      if (!isAdmin) {
+        router.push({ name: 'Home' });
+        return;
+      }
+      const redirectUrl = route.query.redirectUrl;
+      if (typeof redirectUrl === 'string') {
+        router.push(redirectUrl);
+      } else if (Array.isArray(redirectUrl) && typeof redirectUrl[0] === 'string') {
+        router.push(redirectUrl[0]);
+      }
+    });
+  };
 </script>
 
 <template>
@@ -37,18 +36,18 @@ const handleLogin = async (admin?: boolean) => {
 </template>
 
 <style scoped lang="scss">
-.login-card {
-  position: relative;
-  width: fit-content;
-  margin: 0 auto;
-  gap: 32px;
-  padding: 48px;
-  align-items: center;
-}
+  .login-card {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    gap: 32px;
+    padding: 48px;
+    align-items: center;
+  }
 
-.home-link {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-}
+  .home-link {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
 </style>

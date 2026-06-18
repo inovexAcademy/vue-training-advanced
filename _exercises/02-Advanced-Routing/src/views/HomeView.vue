@@ -20,7 +20,7 @@ const handleLogout = () => {
         <ShoppingCart></ShoppingCart>
         <div class="sidebar-cta">
           <OnyxLink href="/checkout">Go to Checkout</OnyxLink>
-          <!-- Add a link to the login page here. If the user is authenticated, a button to logout shoud be here instead. -->
+          <!-- Add buttons for login and logout here. -->
         </div>
       </OnyxSidebar>
     </template>

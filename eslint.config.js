@@ -22,6 +22,12 @@ export default typescriptEslint.config(
       },
     },
     rules: {
+      'vue/no-undef-components': [
+        'error',
+        {
+          ignorePatterns: ['RouterView', 'RouterLink'],
+        },
+      ],
       '@typescript-eslint/no-unused-vars': [
         'warn',
         {

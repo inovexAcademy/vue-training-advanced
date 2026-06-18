@@ -13,7 +13,8 @@ import './styles/index.scss';
  */
 export async function setupApp() {
   const onyx = createOnyx({ router });
-  const app = createApp(App).use(createPinia()).use(onyx).use(router);
+  const pinia = createPinia();
+  const app = createApp(App).use(pinia).use(onyx).use(router);
 
   app.mount('#app');
   return app;

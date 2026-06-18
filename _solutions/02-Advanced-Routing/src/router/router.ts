@@ -1,64 +1,56 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, RouteLocationNormalized } from 'vue-router';
 
 import { useAuthStore } from '@/stores/auth';
+import AdminView from '@/views/AdminView.vue';
 import CheckoutView from '@/views/CheckoutView.vue';
 import HomeView from '@/views/HomeView.vue';
 import LoginView from '@/views/LoginView.vue';
+import NotFoundView from '@/views/NotFoundView.vue';
 import ProductView from '@/views/ProductView.vue';
 
 export const routes = [
   { path: '/', component: HomeView, name: 'Home' },
   { path: '/checkout', component: CheckoutView, name: 'Checkout' },
   { path: '/product/:productId', component: ProductView, name: 'Product' },
-  {
-    path: '/product-not-found',
-    component: () => import('@/views/NotFoundView.vue'),
-    name: 'NotFound',
-  },
-  {
-    path: '/admin',
-    component: () => import('@/views/AdminView.vue'),
-    name: 'Admin',
-    meta: { requiresAdmin: true },
-  },
+  { path: '/product-not-found', component: NotFoundView, name: 'NotFound' },
+  { path: '/admin', component: AdminView, name: 'Admin', meta: { requiresAdmin: true } },
   {
     path: '/login',
     component: LoginView,
     name: 'Login',
-    beforeEnter: () => {
-      const { isAuthenticated } = useAuthStore();
+    beforeEnter: (to: RouteLocationNormalized, from: RouteLocationNormalized) => {
+      const authStore = useAuthStore();
 
-      if (isAuthenticated) {
+      if (authStore.isAuthenticated) {
+        globalThis.alert('You are already logged in!');
         return { name: 'Home' };
       }
     },
   },
 ];
 
-const router = createRouter({
+export const router = createRouter({
   history: createWebHistory(),
   routes,
 });
 
 router.beforeEach((to, from) => {
-  const requiresAdmin = to.meta.requiresAdmin;
-  if (!requiresAdmin) return;
+  const authStore = useAuthStore();
+  if (authStore.isAdmin) return;
 
-  const { isAdmin, isAuthenticated } = useAuthStore();
-  if (isAdmin) return;
-
-  if (!isAuthenticated) {
-    // redirect to login with query param of redirectUrl
-    return { name: 'Login', query: { redirectUrl: to.fullPath } }; //?redirectUrl=http://...
+  if (to.name === 'Admin') {
+    if (authStore.isAuthenticated) {
+      const confirm = globalThis.confirm(
+        'You are logged in as User, please login as an admin to enter the Admin Dashboard'
+      );
+      if (confirm) {
+        return { name: 'Home' };
+      }
+    } else {
+      return { name: 'Login', query: { redirectUrl: to.fullPath } };
+    }
   }
-
-  // redirect away from admin to home, as you are not an admin
-  if (from.name === 'Home') {
-    // window.alert is also correct
-    globalThis.alert('You are logged in as User, please login as an admin to enter the Admin Dashboard')
-  }
-
-  return { name: 'Home' };
+  return true;
 });
 
 export default router;

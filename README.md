@@ -39,7 +39,23 @@ git clone https://github.com/inovexAcademy/vue-training-advanced.git
 cd vue-training-advanced
 ```
 
-### ✅ 2. Install dependencies (all at once)
+### ✅ 2. Bootstrap toolchain and install dependencies
+
+For first-time setup, run the bootstrap script from the repository root:
+
+```bash
+./scripts/bootstrap.sh
+```
+
+This enables Corepack, installs the pinned package manager version from `package.json`, and installs dependencies.
+
+Alternative one-liner:
+
+```bash
+corepack enable && corepack install && pnpm install
+```
+
+### ✅ 3. Install dependencies (all at once)
 
 ```bash
 pnpm install
@@ -47,7 +63,7 @@ pnpm install
 
 > This installs all exercises and solutions in one go via `pnpm-workspace.yaml`.
 
-### ✅ 3. Start an exercise
+### ✅ 4. Start an exercise
 
 Go into the desired exercise folder and run the dev server:
 
