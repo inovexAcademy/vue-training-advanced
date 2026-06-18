@@ -26,7 +26,10 @@
     opacity: 0.7;
 
     @media screen and (max-width: 900px) {
-      display: none;
+      transform: scale(0.6);
+      transform-origin: top left;
+      top: 4px;
+      left: 4px;
     }
   }
 </style>
