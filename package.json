@@ -5,8 +5,10 @@
   "type": "module",
   "engineStrict": true,
   "engines": {
-    "node": "23"
+    "node": "23",
+    "pnpm": ">=10"
   },
+  "packageManager": "pnpm@10.0.0",
   "workspaces": [
     "_examples/*",
     "_exercises/*",
