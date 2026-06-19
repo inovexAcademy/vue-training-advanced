@@ -7,8 +7,8 @@
 </script>
 
 <template>
-  <note>Loading: {{ isLoading.toString() }}</note>
-  <note>Ready: {{ isReady.toString() }}</note>
+  <p>Loading: {{ isLoading.toString() }}</p>
+  <p>Ready: {{ isReady.toString() }}</p>
 
   <br />
   <button @click="() => execute(600)">Fetch 🐶</button>
