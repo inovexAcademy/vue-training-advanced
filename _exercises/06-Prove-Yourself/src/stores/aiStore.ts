@@ -9,7 +9,7 @@ export const useAiStore = defineStore('ai', () => {
 
       return { summary: data as AiSummary };
     } catch (err) {
-      const error = err.message;
+      const error = err instanceof Error ? err.message : 'Unknown error';
       return { error };
     }
   };

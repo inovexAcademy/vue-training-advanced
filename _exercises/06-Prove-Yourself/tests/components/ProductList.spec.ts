@@ -1,6 +1,7 @@
 import ProductList from '@/components/ProductList.vue';
 import { createTestingPinia } from '@pinia/testing';
-import { ComponentMountingOptions, mount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import type { ComponentMountingOptions } from '@vue/test-utils';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import * as products from '@/shared/products';
 import { mockProducts } from '@tests/mocks/products';
@@ -59,7 +60,7 @@ describe('ProductList', () => {
 
         expect(productCard).toBeDefined();
 
-        const mockProduct = availableProducts[index];
+        const mockProduct = availableProducts[index]!;
 
         expect(productCard.props()).toEqual({
           id: mockProduct.id,
@@ -71,7 +72,7 @@ describe('ProductList', () => {
     });
 
     it('when ProductCard emits "add-to-card", should call shoppingCartStore.addToCart', () => {
-      const product = availableProducts[0];
+      const product = availableProducts[0]!;
       const { wrapper, shoppingCartStore } = setupResult;
       const addToCartSpy = vi.spyOn(shoppingCartStore, 'addToCart');
       const firstProductCard = wrapper.findAllComponents(ProductCard).at(0);

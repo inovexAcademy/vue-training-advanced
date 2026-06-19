@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "esnext",
     "moduleResolution": "bundler",
+    "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
     "paths": {

@@ -1,35 +1,39 @@
 // --- minimal Vue 3–style reactivity sketch ---
 
-// targetMap: WeakMap<object, Map<key, Set<ReactiveEffect>>>
-const targetMap = new WeakMap();
+type EffectRunner = (() => void) & { deps: Dep[] };
+type Dep = Set<EffectRunner>;
+type DepsMap = Map<PropertyKey, Dep>;
 
-let activeEffect = null;
+// targetMap: WeakMap<object, Map<key, Set<ReactiveEffect>>>
+const targetMap = new WeakMap<object, DepsMap>();
+
+let activeEffect: EffectRunner | null = null;
 
 // Wrap a function so we can track which deps it touches while it runs
-function effect(fn) {
+function effect(fn: () => void): EffectRunner {
   const reactiveEffect = function runner() {
-    cleanup(runner);
-    activeEffect = runner;
+    cleanup(reactiveEffect);
+    activeEffect = reactiveEffect;
     try {
       return fn();
     } finally {
       activeEffect = null;
     }
-  };
+  } as EffectRunner;
   // Each effect keeps a list of Sets it belongs to for cleanup
   reactiveEffect.deps = [];
   reactiveEffect(); // run once to collect deps
   return reactiveEffect;
 }
 
-function cleanup(runner) {
+function cleanup(runner: EffectRunner) {
   // remove the runner from all dependency sets it was previously in
   for (const dep of runner.deps) dep.delete(runner);
   runner.deps.length = 0;
 }
 
 // Called on property GETs
-function track(target, key) {
+function track(target: object, key: PropertyKey) {
   if (!activeEffect) return;
 
   let depsMap = targetMap.get(target);
@@ -46,7 +50,7 @@ function track(target, key) {
 }
 
 // Called on property SETs
-function trigger(target, key) {
+function trigger(target: object, key: PropertyKey) {
   const depsMap = targetMap.get(target);
   if (!depsMap) return;
 
@@ -59,7 +63,7 @@ function trigger(target, key) {
 }
 
 // Make a reactive object using a Proxy
-function reactive(target) {
+function reactive<T extends object>(target: T): T {
   return new Proxy(target, {
     get(t, key, rcv) {
       const res = Reflect.get(t, key, rcv);
@@ -67,7 +71,7 @@ function reactive(target) {
       return res;
     },
     set(t, key, value, rcv) {
-      const old = t[key];
+      const old = Reflect.get(t, key, rcv);
       const result = Reflect.set(t, key, value, rcv);
       if (old !== value) trigger(t, key); // notify dependents
       return result;

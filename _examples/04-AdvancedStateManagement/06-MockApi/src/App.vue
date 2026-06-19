@@ -2,16 +2,16 @@
   import { ref } from 'vue';
   import { Dog, getAllDogs } from '@/api';
 
-  const dogs = ref<Dog[] | undefined>();
+  const dogs = ref<Dog[]>([]);
   const error = ref<{ message: string } | undefined>();
 
   const fetchDogs = async () => {
     try {
       const { data } = await getAllDogs();
 
-      dogs.value = data;
+      dogs.value = data ?? [];
     } catch (err) {
-      error.value = { message: err };
+      error.value = { message: err instanceof Error ? err.message : 'Unknown error' };
     }
   };
 </script>

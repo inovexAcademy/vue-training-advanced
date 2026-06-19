@@ -1,13 +1,12 @@
 import { createTestingPinia } from '@pinia/testing';
-import { ComponentMountingOptions, mount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import type { ComponentMountingOptions } from '@vue/test-utils';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { mockShoppingCartItems } from '@tests/mocks/products';
 import { useShoppingCartStore } from '@/stores/shoppingCart';
 import ShoppingCart from '@/components/ShoppingCart.vue';
 import { OnyxHeadline, OnyxIconButton } from 'sit-onyx';
 import { ShoppingCartItem } from '@/types/common';
-import { _ } from 'vitest/dist/chunks/reporters.d.BFLkQcL6.js';
-
 describe('ShoppingCart', () => {
   let mountingOptions: ComponentMountingOptions<typeof ShoppingCart>;
 
@@ -55,7 +54,7 @@ describe('ShoppingCart', () => {
       const items = wrapper.findAll('li');
 
       items.forEach((item, index) => {
-        const mockItem = shoppingCartItems[index];
+        const mockItem = shoppingCartItems[index]!;
         const title = item.findComponent(OnyxHeadline).text();
 
         expect(title).toEqual(mockItem.product.title);
@@ -69,7 +68,7 @@ describe('ShoppingCart', () => {
       expect(items.length).toEqual(shoppingCartItems.length);
 
       items.forEach((item, index) => {
-        const mockItem = shoppingCartItems[index];
+        const mockItem = shoppingCartItems[index]!;
         const quantity = item.find('p').element.textContent;
 
         expect(quantity).toEqual(`Quantity: ${mockItem.quantity}`);
@@ -85,8 +84,8 @@ describe('ShoppingCart', () => {
 
     it('when remove button is clicked, should call shoppingCartStore.removeFromCart with item id', () => {
       const { wrapper, removeFromCartSpy } = setupResult;
-      const removeButton = wrapper.findAllComponents(OnyxIconButton)[0];
-      const mockItem = shoppingCartItems[0];
+      const removeButton = wrapper.findAllComponents(OnyxIconButton)[0]!;
+      const mockItem = shoppingCartItems[0]!;
 
       removeButton.vm.$emit('click');
 
