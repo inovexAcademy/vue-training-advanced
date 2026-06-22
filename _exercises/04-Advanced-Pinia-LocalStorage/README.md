@@ -13,6 +13,7 @@ The goal of this exercise is to learn how to persist state in local storage toge
   - [ ] Add a state variable for the theme
 - [ ] On the UserSettingsView the user can switch between 'dark' and 'light' theme
   > ℹ️ Switch themes, refresh the browser and realize that your selection is reset
+  > At this point, the theme selection must **not** actually switch the theme.
 - [ ] Now find a way to persist the theme selection upon refresh (or tab close)
 
 ### 💪 Bonus challenge:

@@ -8,13 +8,13 @@
 <template>
   <OnyxPageLayout>
     <OnyxCard class="admin-dashboard">
-      <OnyxHeadline is="h1" class="title">
-        <OnyxLink href="/" class="home-link">{{ '<' }} Home</OnyxLink>
-        Admin Dashboard
-      </OnyxHeadline>
+      <OnyxLink href="/" class="home-link">{{ '<' }} Home</OnyxLink>
+      <OnyxHeadline is="h1" class="title"> Admin Dashboard </OnyxHeadline>
       <p>Welcome to the admin dashboard!</p>
       <p>This site should only be visitable by admins.</p>
-      <p>You are {{ isAdmin ? '' : 'not' }} an admin!</p>
+      <br />
+      <b v-if="isAdmin">You are an admin! ✅</b>
+      <b v-else>You are not an admin! ❌</b>
     </OnyxCard>
   </OnyxPageLayout>
 </template>

@@ -14,7 +14,13 @@ export async function fetchProducts(quantity: number = 5): Promise<Product[]> {
   return response.products;
 }
 
-const productCategories = ['Category A', 'Category B', 'Category C', 'Category D', 'Category E'] as const;
+const productCategories = [
+  'Category A',
+  'Category B',
+  'Category C',
+  'Category D',
+  'Category E',
+] as const;
 const productBrands = ['Brand X', 'Brand Y', 'Brand Z', 'Brand Q', 'Brand N'] as const;
 const warrantyOptions = ['6 months warranty', '1 year warranty', '2 years warranty'] as const;
 const shippingOptions = [
@@ -23,7 +29,11 @@ const shippingOptions = [
   'Ships in 5-7 business days',
 ] as const;
 const availabilityStatuses = ['In Stock', 'Limited Stock', 'Backorder'] as const;
-const returnPolicies = ['30-day return policy', '14-day return policy', 'No returns accepted'] as const;
+const returnPolicies = [
+  '30-day return policy',
+  '14-day return policy',
+  'No returns accepted',
+] as const;
 
 function getCycledValue<T>(values: readonly T[], id: number): T {
   return values[(id - 1) % values.length] ?? values[0]!;
@@ -78,6 +88,6 @@ function createMockProduct(id: number): Product {
   };
 }
 
-export function getProducts(): Product[] {
-  return Array.from({ length: 50 }, (_, index) => createMockProduct(index + 1));
+export function getProducts(count: number = 3): Product[] {
+  return Array.from({ length: count }, (_, index) => createMockProduct(index + 1));
 }

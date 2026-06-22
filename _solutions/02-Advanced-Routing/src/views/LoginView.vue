@@ -18,6 +18,8 @@
         router.push(redirectUrl);
       } else if (Array.isArray(redirectUrl) && typeof redirectUrl[0] === 'string') {
         router.push(redirectUrl[0]);
+      } else {
+        router.push({ name: 'Home' });
       }
     });
   };

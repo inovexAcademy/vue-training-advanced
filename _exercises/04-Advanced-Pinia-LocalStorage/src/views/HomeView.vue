@@ -8,7 +8,7 @@
 
   const handleLogout = () => {
     logout().then(() => {
-      window.location.reload();
+      globalThis.location.reload();
     });
   };
 </script>
