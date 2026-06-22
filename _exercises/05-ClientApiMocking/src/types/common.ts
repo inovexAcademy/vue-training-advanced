@@ -5,7 +5,7 @@ export interface ProductsResponse {
   limit: number;
 }
 
-export interface Product {
+export interface ProductOld {
   id: number;
   title: string;
   description: string;

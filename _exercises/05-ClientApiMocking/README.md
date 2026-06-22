@@ -8,6 +8,8 @@ The goal of this exercise is to learn how to use a api client and mock data that
   - [ ] Generate the api client from the given products specification file (`/apiSpecification/products_api_spec.yaml`).
     > ℹ️ All needed packages are already installed in the repo. The script command for generating the spec can be found in the package.json
   - [ ] Use the generated client to fetch products. Replace the old fetch call with it.
+    > ℹ️ The generated client has a different function signature than the old fetch function. You will need to check the generated types and functions to see how to use it (hint: `getAllProducts` in `@/api/sdk.gen`).
+    > You need to replace all usages of the old `Product` type with the new one from the generated client (hint: rename the old one (in `common.ts`) first to see what you need to replace).
 
 - [ ] Add Reviews, see [ProductView.vue](./src/views/ProductView.vue):
   - [ ] Add a section for reviews to product details page

@@ -1,9 +1,10 @@
-import { Product, ShoppingCartItem } from '@/types/common';
+import { Product } from '@/api/types.gen';
+import { ShoppingCartItem } from '@/types/common';
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
 
 export const useShoppingCartStore = defineStore('shoppingCart', () => {
-  const cartItems = ref<ShoppingCartItem[]>([]);
+  const cartItems = ref<(Omit<ShoppingCartItem, 'product'> & { product: Product })[]>([]);
 
   const totalPrice = computed(() => {
     return cartItems.value

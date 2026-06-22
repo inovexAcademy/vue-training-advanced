@@ -15,7 +15,8 @@ export async function setupApp() {
   const onyx = createOnyx({ router });
   const app = createApp(App).use(createPinia()).use(onyx).use(router);
 
-  // 👉 configure msw here
+  const mockServiceWorker = await import('./mocks/browser');
+  await mockServiceWorker.worker.start();
 
   app.mount('#app');
   return app;

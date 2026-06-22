@@ -1,10 +1,8 @@
 <script lang="ts" setup>
-  import { AiSummary } from '@/mocks/ai-summary.mock';
-  import { fetchProducts } from '@/shared/products';
-  import { useAiStore } from '@/stores/aiStore';
-  import { Product } from '@/types/common';
+  import { getAllProducts } from '@/api/sdk.gen';
+  import { Product } from '@/api/types.gen';
   import { iconFeedback } from '@sit-onyx/icons';
-  import { OnyxPageLayout, OnyxHeadline, OnyxInfoCard, OnyxCard, OnyxLink } from 'sit-onyx';
+  import { OnyxCard, OnyxHeadline, OnyxInfoCard, OnyxLink, OnyxPageLayout } from 'sit-onyx';
   import { onMounted, ref } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
 
@@ -24,7 +22,9 @@
   });
 
   const getProductForId = async (id: number) => {
-    const products = await fetchProducts();
+    const products = await getAllProducts({ query: { limit: 100 } }).then(
+      (res) => res.data?.products ?? []
+    );
     return products?.find((p) => p.id === id);
   };
 </script>
@@ -44,15 +44,17 @@
       <OnyxHeadline is="h2" class="subtitle">🗣️ Reviews</OnyxHeadline>
 
       <!-- 👉 Add AI summary here -->
-      <!-- <OnyxInfoCard
-        headline="AI Review Summary"
-        style="width: 30rem"
-        :icon="iconFeedback"
-      >
-      </OnyxInfoCard> -->
-
-      <!-- 👉 Add reviews as list here -->
-      <!-- ul ... -->
+      <OnyxInfoCard headline="AI Review Summary" style="width: 30rem" :icon="iconFeedback">
+        <!-- 👉 Add reviews as list here -->
+        <ul>
+          <li v-for="review in product.reviews" :key="review.id">
+            <p>
+              <strong>{{ review.author }}</strong
+              >: {{ review.comment }} (Rating: {{ review.rating }}/5)
+            </p>
+          </li>
+        </ul>
+      </OnyxInfoCard>
     </OnyxCard>
   </OnyxPageLayout>
 </template>

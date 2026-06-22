@@ -1,8 +1,8 @@
 <script setup lang="ts">
+  import { getAllProducts } from '@/api/sdk.gen';
+  import { Product } from '@/api/types.gen';
   import ProductCard from '@/components/ProductCard.vue';
-  import { fetchProducts } from '@/shared/products';
   import { useShoppingCartStore } from '@/stores/shoppingCart';
-  import { Product } from '@/types/common';
   import { useStorage } from '@vueuse/core';
   import { OnyxHeadline, OnyxSelect } from 'sit-onyx';
   import { ref, watch } from 'vue';
@@ -32,7 +32,9 @@
       globalThis.localStorage.setItem('pageSize', newPageSize.toString());
 
       // 👉 TODO: Replace this with the api client fetch
-      products.value = await fetchProducts(newPageSize);
+      // products.value = await fetchProducts(newPageSize);
+      products.value =
+        (await getAllProducts({ query: { limit: newPageSize } })).data?.products ?? [];
     },
     { immediate: true }
   );
