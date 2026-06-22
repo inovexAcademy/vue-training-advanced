@@ -1,4 +1,3 @@
-import { Product as ApiProduct } from '@/api';
 export interface ProductsResponse {
   products: Product[];
   total: number;
@@ -53,6 +52,6 @@ export interface ProductMeta {
 }
 
 export type ShoppingCartItem = {
-  product: ApiProduct;
+  product: Product;
   quantity: number;
 };

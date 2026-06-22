@@ -19,9 +19,11 @@
     }
   );
 
-  const handleChange = (e) => {
+  const handleChange = (e: Event) => {
+    const target = e.target as HTMLInputElement;
+
     console.debug('🔥 handlechange', e);
-    product.value.name = e.target.value;
+    product.value.name = target.value;
   };
 </script>
 

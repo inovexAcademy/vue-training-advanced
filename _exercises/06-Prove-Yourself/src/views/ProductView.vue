@@ -38,7 +38,7 @@
 
     const { summary: apiSummary, error: aiSummaryError } =
       await aiStore.getAiSummaryById(productId);
-    reviewSummaryAi.value = apiSummary;
+    reviewSummaryAi.value = apiSummary ?? null;
     if (aiSummaryError) {
       // better: show error in toast
       console.error('Error loading AI review summary');

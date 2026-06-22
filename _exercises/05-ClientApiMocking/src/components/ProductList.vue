@@ -29,7 +29,7 @@
   watch(
     pageSize,
     async (newPageSize) => {
-      window.localStorage.setItem('pageSize', newPageSize.toString());
+      globalThis.localStorage.setItem('pageSize', newPageSize.toString());
 
       // 👉 TODO: Replace this with the api client fetch
       products.value = await fetchProducts(newPageSize);

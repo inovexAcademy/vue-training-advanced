@@ -14,94 +14,80 @@ export async function fetchProducts(quantity: number = 5): Promise<Product[]> {
   return response.products;
 }
 
-export function getProducts(): Product[] {
-  return [
-    {
-      id: 1,
-      title: 'Product 1',
-      description: 'Description for Product 1',
-      category: 'Category A',
-      price: 29.99,
-      discountPercentage: 10,
-      rating: 4.5,
-      stock: 100,
-      tags: ['tag1', 'tag2'],
-      brand: 'Brand X',
-      sku: 'SKU12345',
-      weight: 0.5,
-      dimensions: { width: 10, height: 20, depth: 5 },
-      warrantyInformation: '1 year warranty',
-      shippingInformation: 'Ships in 3-5 business days',
-      availabilityStatus: 'In Stock',
-      reviews: [],
-      returnPolicy: '30-day return policy',
-      minimumOrderQuantity: 1,
-      meta: {
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-        barcode: '1234567890123',
-        qrCode: 'https://example.com/qr/1234567890123',
-      },
-      thumbnail: 'https://via.placeholder.com/150',
-      images: ['https://via.placeholder.com/150', 'https://via.placeholder.com/200'],
+const productCategories = [
+  'Category A',
+  'Category B',
+  'Category C',
+  'Category D',
+  'Category E',
+] as const;
+const productBrands = ['Brand X', 'Brand Y', 'Brand Z', 'Brand Q', 'Brand N'] as const;
+const warrantyOptions = ['6 months warranty', '1 year warranty', '2 years warranty'] as const;
+const shippingOptions = [
+  'Ships in 1-3 business days',
+  'Ships in 3-5 business days',
+  'Ships in 5-7 business days',
+] as const;
+const availabilityStatuses = ['In Stock', 'Limited Stock', 'Backorder'] as const;
+const returnPolicies = [
+  '30-day return policy',
+  '14-day return policy',
+  'No returns accepted',
+] as const;
+
+function getCycledValue<T>(values: readonly T[], id: number): T {
+  return values[(id - 1) % values.length] ?? values[0]!;
+}
+
+function createMockProduct(id: number): Product {
+  const createdAt = new Date(Date.UTC(2024, 0, id)).toISOString();
+  const updatedAt = new Date(Date.UTC(2024, 1, id)).toISOString();
+  const barcode = String(1000000000000 + id);
+  const category = getCycledValue(productCategories, id);
+  const brand = getCycledValue(productBrands, id);
+
+  return {
+    id,
+    title: `Product ${id}`,
+    description: `Description for Product ${id}`,
+    category,
+    price: Number((14.99 + id * 2.75).toFixed(2)),
+    discountPercentage: (id * 3) % 20,
+    rating: Number((3.5 + (id % 15) * 0.1).toFixed(1)),
+    stock: 25 + id * 4,
+    tags: [
+      `tag${((id - 1) % 10) + 1}`,
+      `tag${((id + 4) % 10) + 1}`,
+      category.toLowerCase().replace(' ', '-'),
+    ],
+    brand,
+    sku: `SKU${String(id).padStart(5, '0')}`,
+    weight: Number((0.4 + id * 0.05).toFixed(2)),
+    dimensions: {
+      width: 10 + (id % 6) * 2,
+      height: 15 + (id % 5) * 3,
+      depth: 4 + (id % 4),
     },
-    {
-      id: 2,
-      title: 'Product 2',
-      description: 'Description for Product 2',
-      category: 'Category B',
-      price: 49.99,
-      discountPercentage: 15,
-      rating: 4.0,
-      stock: 50,
-      tags: ['tag3', 'tag4'],
-      brand: 'Brand Y',
-      sku: 'SKU67890',
-      weight: 1.0,
-      dimensions: { width: 15, height: 25, depth: 10 },
-      warrantyInformation: '2 years warranty',
-      shippingInformation: 'Ships in 5-7 business days',
-      availabilityStatus: 'Limited Stock',
-      reviews: [],
-      returnPolicy: '14-day return policy',
-      minimumOrderQuantity: 1,
-      meta: {
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-        barcode: '0987654321098',
-        qrCode: 'https://example.com/qr/0987654321098',
-      },
-      thumbnail: 'https://via.placeholder.com/150',
-      images: ['https://via.placeholder.com/150', 'https://via.placeholder.com/200'],
+    warrantyInformation: getCycledValue(warrantyOptions, id),
+    shippingInformation: getCycledValue(shippingOptions, id),
+    availabilityStatus: getCycledValue(availabilityStatuses, id),
+    reviews: [],
+    returnPolicy: getCycledValue(returnPolicies, id),
+    minimumOrderQuantity: (id % 3) + 1,
+    meta: {
+      createdAt,
+      updatedAt,
+      barcode,
+      qrCode: `https://example.com/qr/${barcode}`,
     },
-    {
-      id: 3,
-      title: 'Product 3',
-      description: 'Description for Product 3',
-      category: 'Category C',
-      price: 19.99,
-      discountPercentage: 5,
-      rating: 3.5,
-      stock: 200,
-      tags: ['tag5', 'tag6'],
-      brand: 'Brand Z',
-      sku: 'SKU11223',
-      weight: 0.3,
-      dimensions: { width: 8, height: 12, depth: 4 },
-      warrantyInformation: '6 months warranty',
-      shippingInformation: 'Ships in 1-3 business days',
-      availabilityStatus: 'In Stock',
-      reviews: [],
-      returnPolicy: 'No returns accepted',
-      minimumOrderQuantity: 1,
-      meta: {
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-        barcode: '1122334455667',
-        qrCode: 'https://example.com/qr/1122334455667',
-      },
-      thumbnail: 'https://via.placeholder.com/150',
-      images: ['https://via.placeholder.com/150', 'https://via.placeholder.com/200'],
-    },
-  ];
+    thumbnail: `https://via.placeholder.com/300?text=Product+${id}`,
+    images: [
+      `https://via.placeholder.com/300?text=Product+${id}+Image+1`,
+      `https://via.placeholder.com/300?text=Product+${id}+Image+2`,
+    ],
+  };
+}
+
+export function getProducts(count: number = 3): Product[] {
+  return Array.from({ length: count }, (_, index) => createMockProduct(index + 1));
 }

@@ -21,7 +21,7 @@ describe('shoppingCart store', () => {
 
   it('should add a product to cart when addToCart is called', () => {
     const store = useShoppingCartStore();
-    const product = products[0];
+    const product = products[0]!;
 
     store.addToCart(product);
 
@@ -34,19 +34,19 @@ describe('shoppingCart store', () => {
 
   it('should increment quantity if product is added twice', () => {
     const store = useShoppingCartStore();
-    const product = products[0];
+    const product = products[0]!;
 
     store.addToCart(product);
     store.addToCart(product);
 
     expect(store.cartItems.length).toBe(1);
-    expect(store.cartItems[0].quantity).toBe(2);
+    expect(store.cartItems[0]!.quantity).toBe(2);
   });
 
   it('should calculate total price correctly', () => {
     const store = useShoppingCartStore();
-    const productA = { ...products[0], price: 1 };
-    const productB = { ...products[1], price: 2.5 };
+    const productA = { ...products[0]!, price: 1 };
+    const productB = { ...products[1]!, price: 2.5 };
 
     store.addToCart(productA);
     store.addToCart(productA);
@@ -57,7 +57,7 @@ describe('shoppingCart store', () => {
 
   it('should decrease quantity when removeFromCart is called and quantity becomes > 0', () => {
     const store = useShoppingCartStore();
-    const product = products[0];
+    const product = products[0]!;
 
     store.addToCart(product);
     store.addToCart(product);
@@ -69,7 +69,7 @@ describe('shoppingCart store', () => {
 
   it('should remove item when when removeFromCart is called and quantity becomes 0', () => {
     const store = useShoppingCartStore();
-    const product = products[0];
+    const product = products[0]!;
 
     store.addToCart(product);
     store.removeFromCart(product.id);

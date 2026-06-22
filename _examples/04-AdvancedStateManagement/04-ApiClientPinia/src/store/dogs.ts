@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 import { computed, readonly, ref } from 'vue';
 
 export const useDogStore = defineStore('dogs', () => {
-  const dogs = ref<Dog[]>(undefined);
+  const dogs = ref<Dog[]>([]);
   const minAwesomeness = ref<number>(-1);
   const error = ref<{ message: string } | undefined>();
 
@@ -27,9 +27,9 @@ export const useDogStore = defineStore('dogs', () => {
     try {
       const { data } = await getAllDogs();
 
-      dogs.value = data;
+      dogs.value = data ?? [];
     } catch (err) {
-      error.value = { message: err };
+      error.value = { message: err instanceof Error ? err.message : 'Unknown error' };
     }
   };
 

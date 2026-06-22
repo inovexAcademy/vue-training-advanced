@@ -1,15 +1,19 @@
-import { createWebHistory, createRouter } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
-import HomeView from '@/views/HomeView.vue';
 import CheckoutView from '@/views/CheckoutView.vue';
-import ProductView from '@/views/ProductView.vue';
+import HomeView from '@/views/HomeView.vue';
 import NotFoundView from '@/views/NotFoundView.vue';
+import ProductView from '@/views/ProductView.vue';
 
 export const routes = [
   { path: '/', component: HomeView, name: 'Home' },
   { path: '/checkout', component: CheckoutView, name: 'Checkout' },
   { path: '/product/:productId', component: ProductView, name: 'Product' },
   { path: '/product-not-found', component: NotFoundView, name: 'NotFound' },
+  {
+    path: '/:catch(.*)*',
+    redirect: { name: 'NotFound' },
+  },
 ];
 
 export const router = createRouter({

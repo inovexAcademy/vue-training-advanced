@@ -36,9 +36,9 @@
 </template>
 
 <script setup lang="ts">
+  import { nextTick, onBeforeMount, ref } from 'vue';
   import { useRoute } from 'vue-router';
   import { lamaData } from '../lama-data';
-  import { onBeforeMount, ref, nextTick } from 'vue';
 
   const route = useRoute();
   const lamaId = Number(route.params.id);
@@ -83,7 +83,7 @@
   onBeforeMount(() => {
     if (!lama) {
       alert('Lama not found! Redirecting to home.');
-      window.location.href = '/';
+      globalThis.location.href = '/';
     }
   });
 </script>

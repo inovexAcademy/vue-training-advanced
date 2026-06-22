@@ -8,8 +8,19 @@ As a starting point, we created two test files in the `/tests` directory: `add-t
 
 ## 📝 Tasks
 
-**Try coming up with sensible user flows, then automate and test them with Playwright! You got this!**
+- [ ] The added spec files do not contain any actual test yet, only the preparation.
+      Add a test for the user flow of adding a product to the shopping cart
 
+- [ ] Now try coming up with sensible user flows, then write tests for them with Playwright! You got this!
+
+---
+
+Open this file in <b>Preview mode</b> before checking the hints below.
+<br/> With VSCode, you can use the shortcut `Cmd + Shift + V` (Mac) or `Ctrl + Shift + V` (Windows/Linux) to open the Markdown preview.
+
+<br/>
+<br/>
+<br/>
 <br/>
 <br/>
 <br/>

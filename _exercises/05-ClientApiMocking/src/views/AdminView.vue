@@ -1,8 +1,7 @@
 <script setup lang="ts">
-  import { useAuthStore } from '@/stores/auth';
   import { OnyxCard, OnyxHeadline, OnyxLink, OnyxPageLayout } from 'sit-onyx';
 
-  const { isAdmin } = useAuthStore();
+  const isAdmin = false; // This should be replaced with the actual logic to determine if the user is an admin, e.g. from a store or API call
 </script>
 
 <template>

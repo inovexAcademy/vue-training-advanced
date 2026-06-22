@@ -1,13 +1,22 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "module": "esnext",
     "moduleResolution": "bundler",
+    "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "@tests/*": ["./tests/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@tests/*": [
+        "./tests/*"
+      ]
     },
     "resolveJsonModule": true,
     "target": "esnext",

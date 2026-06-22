@@ -4,7 +4,7 @@ import { computed, readonly, ref } from 'vue';
 import { useAsyncState } from '@vueuse/core';
 
 export const useDogStore = defineStore('dogs', () => {
-  const dogs = ref<Dog[]>(undefined);
+  const dogs = ref<Dog[]>([]);
   const minAwesomeness = ref<number>(0);
   const error = ref<{ message: string } | undefined>();
 
@@ -29,10 +29,12 @@ export const useDogStore = defineStore('dogs', () => {
     try {
       const { data } = await getAllDogs();
 
-      setDogs(data);
-      return data;
+      const loadedDogs = data ?? [];
+      setDogs(loadedDogs);
+      return loadedDogs;
     } catch (err) {
-      error.value = { message: err };
+      error.value = { message: err instanceof Error ? err.message : 'Unknown error' };
+      return [];
     }
   };
 

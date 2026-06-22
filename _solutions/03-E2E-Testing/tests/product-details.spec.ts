@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.describe('Product details navigation', () => {
   test.describe('given the product list page', () => {
@@ -8,7 +8,7 @@ test.describe('Product details navigation', () => {
 
     test.describe('when the card of Product 1 is clicked', () => {
       test.beforeEach(async ({ page }) => {
-        const productCard = page.getByRole('listitem').filter({ hasText: 'Product 1' }); // hasText supports regular expressions!
+        const productCard = page.getByRole('button', { name: 'Product 1' }).first(); // first() ensures we get the first one if multiple products match the name (e.g. 'Product 10')
 
         await productCard.click();
       });

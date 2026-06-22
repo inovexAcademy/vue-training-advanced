@@ -30,7 +30,7 @@
   watch(
     pageSize,
     async (newPageSize) => {
-      window.localStorage.setItem('pageSize', newPageSize.toString());
+      globalThis.localStorage.setItem('pageSize', newPageSize.toString());
 
       products.value = await fetchProducts(newPageSize);
     },
@@ -38,7 +38,7 @@
   );
 
   // watchEffect(async () => {
-  //   window.localStorage.setItem('pageSize', pageSize.value.toString());
+  //   globalThis.localStorage.setItem('pageSize', pageSize.value.toString());
   //
   //   products.value = await fetchProducts(pageSize.value);
   // });

@@ -1,10 +1,10 @@
-import { createWebHistory, createRouter } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
-import HomeView from '@/views/HomeView.vue';
-import CheckoutView from '@/views/CheckoutView.vue';
-import ProductView from '@/views/ProductView.vue';
-import LoginView from '@/views/LoginView.vue';
 import { useAuthStore } from '@/stores/auth';
+import CheckoutView from '@/views/CheckoutView.vue';
+import HomeView from '@/views/HomeView.vue';
+import LoginView from '@/views/LoginView.vue';
+import ProductView from '@/views/ProductView.vue';
 
 export const routes = [
   { path: '/', component: HomeView, name: 'Home' },
@@ -32,6 +32,15 @@ export const routes = [
         return { name: 'Home' };
       }
     },
+  },
+  {
+    path: '/user-settings',
+    component: () => import('@/views/UserSettingsView.vue'),
+    name: 'UserSettings',
+  },
+  {
+    path: '/:catch(.*)*',
+    redirect: { name: 'NotFound' },
   },
 ];
 

@@ -22,7 +22,7 @@
   console.debug('🦁 animal.value', animal.value);
   console.debug('🦁 animal.value.name', animal.value.name);
 
-  const updateSkill = (event: InputEvent) => {
+  const updateSkill = (event: Event) => {
     currentNewSkill.value = (event.target as HTMLInputElement).value;
   };
 
