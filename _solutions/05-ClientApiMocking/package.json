@@ -19,5 +19,9 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.json --composite false",
     "type-check:test": "vue-tsc --noEmit -p ../../tsconfig.vitest.json --composite false",
     "generate:api": "openapi-ts"
+  },
+  "devDependencies": {
+    "@hey-api/openapi-ts": "^0.98.2",
+    "prettier": "^3.8.4"
   }
 }
