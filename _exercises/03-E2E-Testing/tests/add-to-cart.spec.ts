@@ -14,9 +14,10 @@ test.describe('Add to cart', () => {
     test.beforeEach(async ({ page }) => {
       const addToCartButton = page
         .getByRole('listitem')
-        .filter({ hasText: product.title })
-        .getByRole('button')
-        .filter({ hasText: 'Add to cart' });
+        .filter({
+          has: page.getByRole('heading', { name: product.title, exact: true }),
+        })
+        .getByRole('button', { name: 'Add to cart', exact: true });
 
       await addToCartButton.click();
 
