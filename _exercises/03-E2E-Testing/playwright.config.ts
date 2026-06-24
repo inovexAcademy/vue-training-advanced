@@ -16,6 +16,7 @@ export default defineConfig({
   fullyParallel: true,
   retries: 0,
   reporter: 'html', // Reporter to use. See https://playwright.dev/docs/test-reporters
+  timeout: 5_000, // Maximum time one test can run for. See https://playwright.dev/docs/api/class-testoptions#test-options-timeout
 
   /*  Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions  */
   use: {
@@ -63,7 +64,7 @@ export default defineConfig({
 
   /* Let Playwright run your local dev server before starting the tests */
   webServer: {
-    command: 'pnpm run start',
+    command: 'pnpm run dev',
     url: 'http://localhost:8100',
     reuseExistingServer: true,
     timeout: 60_000,

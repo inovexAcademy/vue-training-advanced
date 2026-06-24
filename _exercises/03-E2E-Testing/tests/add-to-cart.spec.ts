@@ -29,7 +29,17 @@ test.describe('Add to cart', () => {
       await expect(page.getByTestId('shopping-cart-list-item')).toHaveCount(1);
     });
 
-    // When remove button is clicked...
-    // Then removes the product from the shopping cart...
+    test('removes the product from the shopping cart', async ({ page }) => {
+      const removeButton = page
+        .getByTestId('shopping-cart-list-item')
+        .getByRole('button', { name: 'Remove' });
+
+      await removeButton.click();
+
+      await expect(page.getByTestId('shopping-cart-list-item')).toHaveCount(0);
+    });
+
+    // when adding another product of the same type
+    // the quantity of the product in the shopping cart should increase
   });
 });

@@ -5,7 +5,7 @@
   "type": "module",
   "engineStrict": true,
   "engines": {
-    "node": "23"
+    "node": "26"
   },
   "scripts": {
     "start": "pnpm run dev",
@@ -18,7 +18,7 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "devDependencies": {
-    "@playwright/test": "~1.52.0",
+    "@playwright/test": "~1.61.1",
     "@types/node": "^22.18.8"
   }
 }
