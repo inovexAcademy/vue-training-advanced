@@ -28,8 +28,8 @@ By the end of this course, you’ll:
 Ensure pnpm and node are installed and in the correct version
 
 ```bash
-node -v // v23
-pnpm -v // 10.17 or higher
+node -v // v26
+pnpm -v // v10 or higher
 ```
 
 ### ✅ 1. Clone the repository
